@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
 
 target 'V-Star' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -15,8 +17,8 @@ pod 'SDWebImage', '~> 5.0'
 pod 'WMPageController', '2.3.0'
 pod 'SwiftyJSON'
 pod 'WechatOpenSDK', '1.8.5'
-#pod 'AliPlayerSDK_iOS'
-pod 'AlivcConan'
-pod 'QuCore-ThirdParty'
+pod 'AliPlayerSDK_iOS'
+#pod 'AlivcConan'
+#pod 'QuCore-ThirdParty'
 end
 

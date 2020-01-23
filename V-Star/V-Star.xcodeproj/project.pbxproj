@@ -1295,7 +1295,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/temp/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1320,7 +1320,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/temp/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

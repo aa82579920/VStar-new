@@ -1,7 +1,11 @@
 ${PODS_ROOT}/Target Support Files/Pods-V-Star/Pods-V-Star-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${PODS_ROOT}/AlivcConan/AlivcConan.framework
+${PODS_ROOT}/AliPlayerSDK_iOS/AliyunPlayer.framework
+${PODS_ROOT}/AliPlayerSDK_iOS/alivcffmpeg.framework
+${PODS_ROOT}/AliPlayerSDK_iOS/AlivcConan.framework
+${PODS_ROOT}/AliPlayerSDK_iOS/AliyunMediaDownloader.framework
+${PODS_ROOT}/AliPlayerSDK_iOS/artpSource.framework
 ${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework
 ${PODS_ROOT}/AliyunVideoSDKStd/frameworks/AliyunVideoSDKPro.framework
 ${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework
@@ -9,5 +13,4 @@ ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
-${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework
 ${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework

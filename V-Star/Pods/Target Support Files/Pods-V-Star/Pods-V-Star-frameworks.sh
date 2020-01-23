@@ -193,7 +193,11 @@ fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${PODS_ROOT}/AlivcConan/AlivcConan.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunPlayer.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/alivcffmpeg.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AlivcConan.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunMediaDownloader.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/artpSource.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework"
   install_framework "${PODS_ROOT}/AliyunVideoSDKStd/frameworks/AliyunVideoSDKPro.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework"
@@ -201,13 +205,16 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${PODS_ROOT}/AlivcConan/AlivcConan.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunPlayer.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/alivcffmpeg.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AlivcConan.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunMediaDownloader.framework"
+  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/artpSource.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework"
   install_framework "${PODS_ROOT}/AliyunVideoSDKStd/frameworks/AliyunVideoSDKPro.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework"
@@ -215,7 +222,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WMPageController/WMPageController.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

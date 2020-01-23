@@ -43,11 +43,11 @@ class AttendListControler: UIViewController {
     func initSearchBar() {
         self.searchBar = {
             searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: view.width, height: 54))
-            searchBar.searchTextField.textAlignment = .center
-            searchBar.searchTextField.text = "用户名称"
-            searchBar.searchTextField.textColor = UIColor(hex6: 0xcccccc)
-            searchBar.searchTextField.layer.masksToBounds = true
-            searchBar.searchTextField.layer.cornerRadius = searchBar.searchTextField.frame.height / 2
+//            searchBar.searchTextField.textAlignment = .center
+//            searchBar.searchTextField.text = "用户名称"
+//            searchBar.searchTextField.textColor = UIColor(hex6: 0xcccccc)
+//            searchBar.searchTextField.layer.masksToBounds = true
+//            searchBar.searchTextField.layer.cornerRadius = searchBar.searchTextField.frame.height / 2
             searchBar.setShowsCancelButton(false, animated: false)
             return searchBar
         }()

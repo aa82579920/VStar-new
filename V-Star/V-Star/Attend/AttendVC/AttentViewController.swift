@@ -55,6 +55,7 @@ class AttentViewController: UIViewController {
         //列表封装
         listContainerView = JXSegmentedListContainerView(dataSource: self)
         listContainerView.didAppearPercent = 0.9
+//        listContainerView.initListPercent = 0.9
         view.addSubview(self.listContainerView)
         
         //将listContainerView.scrollView和segmentedView.contentScrollView进行关联

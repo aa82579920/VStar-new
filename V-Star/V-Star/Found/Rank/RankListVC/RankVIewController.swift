@@ -20,24 +20,24 @@ class RankViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
         setView()
+        view.addSubview(rankTableView)
         rankTableView.reloadData()
     }
     
     private func setView() {
-        rankTableView.tableHeaderView = rankSignView
-        rankTableView.tableHeaderView?.height = 30
+        rankTableView.tableHeaderView = RankSignView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: 46))
+        rankTableView.tableHeaderView?.height = 46
         rankTableView.allowsSelection = false
         rankTableView.delegate = self
         rankTableView.dataSource = self
     }
     
     func loadData() {
-        GetHelper.GetUserRank(url: VStar_URL.rank.getUsermonthRank, success: { userRank in
+        GetHelper.GetUserRank(success: { userRank in
             self.userRank = userRank
-            self.ranktopView.top1.userRank = userRank
-            self.ranktopView.top2.userRank = userRank
-            self.ranktopView.top3.userRank = userRank
+            self.ranktopView.userRank = userRank
             self.rankTableView.reloadData()
         }, failure: { _ in
             print("Rank的来看看")
@@ -67,7 +67,7 @@ extension RankViewController: UITableViewDelegate, UITableViewDataSource {
             if userRank == nil {return UserRankCell()}
             else {return UserRankCell(byModel: userRank, withIndex: indexPath.row)}
 //        } else {
-//            
+//
 //        }
         
     }
@@ -75,6 +75,8 @@ extension RankViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             if userRank != nil {
+                ranktopView.backgroundColor = .white
+                ranktopView.setView()
                 ranktopView.addView()
             }
             return ranktopView
@@ -86,7 +88,7 @@ extension RankViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return CGFloat(60)
+            return CGFloat(200)
         } else {
             return CGFloat(18)
         }

@@ -8,17 +8,19 @@
 
 import UIKit
 
-class RankSignView: UIView {
+class RankSignView: GradualColorView {
     let title = UILabel()
     let updateSign = UILabel()
     
     func setView() {
         title.text = "本月人气排行"
         title.textColor = .white
+        title.backgroundColor = .none
         title.font = UIFont.flexibleSystemFont(ofSize: 14)
         
         updateSign.text = "更新时间：每日凌晨4点"
         updateSign.textColor = .white
+        updateSign.backgroundColor = .none
         updateSign.font = UIFont.flexibleSystemFont(ofSize: 10)
     }
     
@@ -28,12 +30,12 @@ class RankSignView: UIView {
         
         title.snp.makeConstraints { make in
             make.centerX.equalTo(self)
-            make.top.equalTo(self).offset(14)
+            make.top.equalTo(self).offset(10)
         }
         
         updateSign.snp.makeConstraints { make in
             make.centerX.equalTo(self)
-            make.top.equalTo(title.snp.bottom).offset(10)
+            make.top.equalTo(title.snp.bottom).offset(6)
         }
     }
 }

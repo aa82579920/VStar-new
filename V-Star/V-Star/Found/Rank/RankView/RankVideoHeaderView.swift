@@ -9,11 +9,11 @@
 import UIKit
 
 class RankWorkView: UIView {
-    let logo = UIImageView()
+    let logo = UIImageView(image: UIImage(named: "人气视频"))
     let title = UILabel()
     
-    convenience init() {
-        self.init()
+    func setView() {
+        self.backgroundColor = .white
         title.text = "本月人气视频"
         title.textColor = UIColor.starRed
         title.font = UIFont.flexibleSystemFont(ofSize: 14)
@@ -24,6 +24,7 @@ class RankWorkView: UIView {
         logo.snp.makeConstraints { make in
             make.centerY.equalTo(self)
             make.left.equalTo(self).offset(7)
+            make.width.height.equalTo(86 / 3)
         }
         
         title.snp.makeConstraints { make in
@@ -32,7 +33,5 @@ class RankWorkView: UIView {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

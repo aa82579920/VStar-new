@@ -61,18 +61,18 @@ extension RecommendWork {
 
 // MARK: - Datum
 struct RWDatum: Codable {
-    let workID: Int
-    let workName: String
-    let workTypeID, userID: Int
-    let username: String
-    let avatar: String
-    let introduction, videoID: String
-    let coverURL: String
-    let videoLink: String
-    let hotValue: Int
-    let time, tags: String
-    let collectionNum, commentNum: Int
-    let duration: Double
+    let workID: Int?
+    let workName: String?
+    let workTypeID, userID: Int?
+    let username: String?
+    let avatar: String?
+    let introduction, videoID: String?
+    let coverURL: String?
+    let videoLink: String?
+    let hotValue: Int?
+    let time, tags: String?
+    let collectionNum, commentNum: Int?
+    let duration: Double?
     
     enum CodingKeys: String, CodingKey {
         case workID = "work_ID"
@@ -111,22 +111,22 @@ extension RWDatum {
     }
     
     func with(
-        workID: Int? = nil,
-        workName: String? = nil,
-        workTypeID: Int? = nil,
-        userID: Int? = nil,
-        username: String? = nil,
-        avatar: String? = nil,
-        introduction: String? = nil,
-        videoID: String? = nil,
-        coverURL: String? = nil,
-        videoLink: String? = nil,
-        hotValue: Int? = nil,
-        time: String? = nil,
-        tags: String? = nil,
-        collectionNum: Int? = nil,
-        commentNum: Int? = nil,
-        duration: Double? = nil
+        workID: Int?? = nil,
+        workName: String?? = nil,
+        workTypeID: Int?? = nil,
+        userID: Int?? = nil,
+        username: String?? = nil,
+        avatar: String?? = nil,
+        introduction: String?? = nil,
+        videoID: String?? = nil,
+        coverURL: String?? = nil,
+        videoLink: String?? = nil,
+        hotValue: Int?? = nil,
+        time: String?? = nil,
+        tags: String?? = nil,
+        collectionNum: Int?? = nil,
+        commentNum: Int?? = nil,
+        duration: Double?? = nil
         ) -> RWDatum {
         return RWDatum(
             workID: workID ?? self.workID,

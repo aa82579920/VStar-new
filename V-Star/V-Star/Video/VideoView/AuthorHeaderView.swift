@@ -12,8 +12,8 @@ class AuthorHeaderView: UIView {
     let rankLabel = UILabel()
     let authorName = UILabel()
     let avatar = UIImageView()
-    var attendItem: NationalItemView?
-    var complainItem: NationalItemView?
+    var attendItem: NationalTagView?
+    var complainItem: NationalTagView?
     
     convenience init(rank: String, authorName: String, avatar: String) {
         self.init(rank: rank, authorName: authorName, avatar: avatar)
@@ -24,8 +24,8 @@ class AuthorHeaderView: UIView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = self.height / 2
 //        rankLabel.backgroundColor
-        attendItem = NationalItemView(content: "+ 关注", color: UIColor.starRed, suitToLength: false)
-        complainItem = NationalItemView(content: "投诉", color: UIColor.lightGray, suitToLength: false)
+//        attendItem = NationalTagView(content: "+ 关注", color: UIColor.starRed, suitToLength: false)
+//        complainItem = NationalTagView(content: "投诉", color: UIColor.lightGray, suitToLength: false)
     }
     
     required init?(coder: NSCoder) {

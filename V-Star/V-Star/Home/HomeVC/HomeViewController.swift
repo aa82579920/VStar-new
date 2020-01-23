@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     let segmentedDataSource = JXSegmentedTitleDataSource()
     let indicator = JXSegmentedIndicatorLineView() //指示器
     var listContainerView: JXSegmentedListContainerView!
+    let layout = UICollectionViewFlowLayout()
+    var collectionView: HomeCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +54,18 @@ class HomeViewController: UIViewController {
         listContainerView = JXSegmentedListContainerView(dataSource: self)
         listContainerView.didAppearPercent = 0.9
         view.addSubview(self.listContainerView)
+        initCollectionView()
         
         //将listContainerView.scrollView和segmentedView.contentScrollView进行关联
         segmentedView.contentScrollView = self.listContainerView.scrollView
     }
 
+    func initCollectionView() {
+        collectionView = HomeCollectionView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height), collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         backView.snp.makeConstraints { make in
@@ -83,6 +92,7 @@ extension HomeViewController: JXSegmentedViewDelegate {
     
     func segmentedView(_ segmentedView: JXSegmentedView, scrollingFrom leftIndex: Int, to rightIndex: Int, percent: CGFloat) {
         //传递scrollingFrom事件给listContainerView，必须调用！！！
+//        listContainerView.scrolling(from: leftIndex, to: rightIndex, percent: percent, selectedIndex: segmentedView.selectedIndex)
         listContainerView.segmentedViewScrolling(from: leftIndex, to: rightIndex, percent: percent, selectedIndex: segmentedView.selectedIndex)
     }
 }
@@ -93,8 +103,15 @@ extension HomeViewController: JXSegmentedListContainerViewDataSource {
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        return RecommendView()
+        switch index {
+        case 0:
+            return collectionView
+        default:
+            return UIView() as! JXSegmentedListContainerViewListDelegate
+        }
     }
     
 }
+
+
 

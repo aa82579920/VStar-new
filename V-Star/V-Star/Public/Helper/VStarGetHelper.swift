@@ -10,7 +10,7 @@ import Foundation
 
 struct GetHelper {
     static func GetMyself(success: @escaping (MySelf) -> Void, failure: @escaping (Error) -> Void) {
-        var myParam = ["user_ID": MyStorage.userID] as [String: Any]
+        var myParam = ["":""] as [String: Any]
         VStarHelper.dataStar(url: VStar_URL.user.myself, myMethod: .get, param: &myParam, success: { dic in
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let mySelf = try? MySelf(data: data) {
                 success(mySelf)
@@ -140,9 +140,9 @@ struct GetHelper {
         })
     }
     
-    static func GetWorkRank(url: String, success: @escaping (WorkRank) -> Void, failure: @escaping (Error) -> Void) {
+    static func GetWorkRank(success: @escaping (WorkRank) -> Void, failure: @escaping (Error) -> Void) {
         var myParam = ["num": WorkStorage.num] as [String : Any]
-        VStarHelper.dataStar(url: url, myMethod: .get, param: &myParam, success: { dic in
+        VStarHelper.dataStar(url: VStar_URL.rank.getWorkmonthRank, myMethod: .get, param: &myParam, success: { dic in
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let aul = try? WorkRank(data: data) {
                 success(aul)
             }
@@ -151,9 +151,9 @@ struct GetHelper {
         })
     }
     
-    static func GetUserRank(url: String, success: @escaping (UserRank) -> Void, failure: @escaping (Error) -> Void) {
+    static func GetUserRank(success: @escaping (UserRank) -> Void, failure: @escaping (Error) -> Void) {
         var myParam = ["num": WorkStorage.num] as [String : Any]
-        VStarHelper.dataStar(url: url, myMethod: .get, param: &myParam, success: { dic in
+        VStarHelper.dataStar(url: VStar_URL.rank.getUsermonthRank, myMethod: .get, param: &myParam, success: { dic in
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let aul = try? UserRank(data: data) {
                 success(aul)
             }
@@ -166,6 +166,28 @@ struct GetHelper {
         var myParam = ["history": WorkStorage.history, "habit": WorkStorage.habit, "mode": WorkStorage.mode, "limit": MyStorage.limit] as [String : Any]
         VStarHelper.dataStar(url: VStar_URL.work.getRecommendWork, myMethod: .get, param: &myParam, success: { dic in
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let aul = try? RecommendWork(data: data) {
+                success(aul)
+            }
+        }, failure: { _ in
+            
+        })
+    }
+    
+    static func GetVideoInfo(success: @escaping (VideoInfo) -> Void, failure: @escaping (Error) -> Void) {
+        var myParam = ["videoID": WorkStorage.videoId] as [String : Any]
+        VStarHelper.dataStar(url: "/aliyun/getVideoInfo", myMethod: .get, param: &myParam, success: { dic in
+            if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let aul = try? VideoInfo(data: data) {
+                success(aul)
+            }
+        }, failure: { _ in
+            
+        })
+    }
+    
+    static func GetIsFollow(success: @escaping (IsError) -> Void, failure: @escaping (Error) -> Void) {
+        var myParam = ["from_user_ID": MyStorage.userID, "to_user_ID": WorkStorage.toUserID] as [String : Any]
+        VStarHelper.dataStar(url: "/follow/check", myMethod: .get, param: &myParam, success: { dic in
+            if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let aul = try? IsError(data: data) {
                 success(aul)
             }
         }, failure: { _ in

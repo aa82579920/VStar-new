@@ -30,7 +30,7 @@ extension UIColor {
     
     static var starRed = UIColor(red: 224 / 255, green: 9 / 51, blue: 78 / 255, alpha: 1)
     
-    
+    static var starGray = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
 }
 
 extension UIView {
@@ -111,6 +111,31 @@ extension String {
         
         return dateformatter.string(from: Date())
     }
+    
+    static func format(decimal:Float, _ maximumDigits:Int = 1, _ minimumDigits:Int = 1) ->String? {
+        let number = NSNumber(value: decimal)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.maximumFractionDigits = maximumDigits //设置小数点后最多2位
+        numberFormatter.minimumFractionDigits = minimumDigits //设置小数点后最少2位（不足补0）
+        return numberFormatter.string(from: number)
+    }
+    
+    func urlScheme(scheme:String) -> URL? {
+        if let url = URL.init(string: self) {
+            var components = URLComponents.init(url: url, resolvingAgainstBaseURL: false)
+            components?.scheme = scheme
+            return components?.url
+        }
+        return nil
+    }
+    
+    static func LocalizedString(_ key: Any, _ comment: Any?) -> String{
+        return Foundation.NSLocalizedString(key as! String, tableName: "", bundle: .main, value: key as! String, comment: comment as! String)
+    }
+    
+    public func localString() -> String {
+        return .LocalizedString(self, nil)
+    }
 }
 
 extension UIImage {
@@ -157,5 +182,17 @@ extension UIViewController {
             return current(base: presented)
         }
         return base
+    }
+}
+
+//MARK: 屏幕宽高
+struct Screen {
+    static let width = UIScreen.main.bounds.width
+    static let height = UIScreen.main.bounds.height
+}
+
+extension CGRect {
+    static func evenRect(rect: CGRect) -> CGRect {
+        return CGRect(x: Int(rect.origin.x) / 2 * 2, y: Int(rect.origin.y) / 2 * 2, width: Int(rect.size.width) / 2 * 2, height: Int(rect.size.height) / 2 * 2)
     }
 }

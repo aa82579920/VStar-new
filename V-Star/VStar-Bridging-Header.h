@@ -5,6 +5,6 @@
 #define VStar_Bridging_Header_h
 
 #import <CommonCrypto/CommonCrypto.h>
-#import "UITableView+FDTemplateLayoutCell.h"
 #import "WXApi.h"
+#import "AlivcMacro.h"
 #endif

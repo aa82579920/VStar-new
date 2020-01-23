@@ -277,5 +277,27 @@ struct PostHelper {
             
         })
     }
+    
+    static func GetVideoUpload(success: @escaping (UploadModel) -> Void, failure: @escaping (Error) -> Void) {
+        var myParam = ["title": Video.title, "fileName": Video.fileName, "description": Video.description, "coverID": Video.coverID, "tags": Video.tags] as [String: Any]
+        VStarHelper.dataStar(url: "/aliyun/getVideoUpload", myMethod: .post, param: &myParam, success: { dic in
+            if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let aul = try? UploadModel(data: data) {
+                success(aul)
+            }
+        }, failure: { _ in
+            
+        })
+    }
+    
+    static func GetCoverUpload(success: @escaping (CoverModel) -> Void, failure: @escaping (Error) -> Void) {
+        var myParam = ["ext": Cover.ext] as [String: Any]
+        VStarHelper.dataStar(url: "/aliyun/getVideoUpload", myMethod: .get, param: &myParam, success: { dic in
+            if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let aul = try? CoverModel(data: data) {
+                success(aul)
+            }
+        }, failure: { _ in
+            
+        })
+    }
 }
 

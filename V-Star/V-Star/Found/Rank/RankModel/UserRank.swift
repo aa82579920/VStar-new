@@ -9,9 +9,9 @@
 import Foundation
 // MARK: - UserRank
 struct UserRank: Codable {
-    let message: String
-    let errorCode: Int
-    let data: [URDatum]
+    let message: String?
+    let errorCode: Int?
+    let data: [URDatum]?
     
     enum CodingKeys: String, CodingKey {
         case message
@@ -39,9 +39,9 @@ extension UserRank {
     }
     
     func with(
-        message: String? = nil,
-        errorCode: Int? = nil,
-        data: [URDatum]? = nil
+        message: String?? = nil,
+        errorCode: Int?? = nil,
+        data: [URDatum]?? = nil
         ) -> UserRank {
         return UserRank(
             message: message ?? self.message,
@@ -61,15 +61,15 @@ extension UserRank {
 
 // MARK: - Datum
 struct URDatum: Codable {
-    let userID: Int
-    let username: String
-    let avatar: String
-    let weekHotValue: Int
+    let userID: Int?
+    let username: String?
+    let avatar: String?
+    let weekHotValue: Int?
     
     enum CodingKeys: String, CodingKey {
         case userID = "user_ID"
         case username, avatar
-        case weekHotValue = "week_hot_value"
+        case weekHotValue = "month_hot_value"
     }
 }
 
@@ -92,10 +92,10 @@ extension URDatum {
     }
     
     func with(
-        userID: Int? = nil,
-        username: String? = nil,
-        avatar: String? = nil,
-        weekHotValue: Int? = nil
+        userID: Int?? = nil,
+        username: String?? = nil,
+        avatar: String?? = nil,
+        weekHotValue: Int?? = nil
         ) -> URDatum {
         return URDatum(
             userID: userID ?? self.userID,

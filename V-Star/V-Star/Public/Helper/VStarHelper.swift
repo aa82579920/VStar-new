@@ -27,7 +27,7 @@ struct VStarHelper {
                 failure?(error)
                 if let data = response.result.value  {
                     if let dict = data as? [String: Any],
-                        let errmsg = dict["starrrrr"] as? String {
+                        let errmsg = dict["message"] as? String {
                         print(errmsg)
                     }
                 } else {
@@ -38,15 +38,3 @@ struct VStarHelper {
     }
 }
 
-//struct VStarGetHelper {
-//    static func GetMyself(urls: String, myParam: Parameters, success: @escaping (Any) -> Void, failure: @escaping (Error) -> Void) {
-//            VStarHelper.dataStar(url: urls, myMethod: .get, param: myParam, success: { dic in
-//                if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let mySelf = try? Any(data: data) {
-//                    success(mySelf)
-//                }
-//            }, failure: { _ in
-//
-//            })
-//        }
-//
-//}

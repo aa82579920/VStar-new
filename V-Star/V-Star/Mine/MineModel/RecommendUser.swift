@@ -9,9 +9,9 @@
 import Foundation
 // MARK: - RecommendUser
 struct RecommendUser: Codable {
-    let errorCode: Int
-    let message: String
-    let data: [RUDatum]
+    let errorCode: Int?
+    let message: String?
+    let data: [RUDatum]?
     
     enum CodingKeys: String, CodingKey {
         case errorCode = "error_code"
@@ -38,9 +38,9 @@ extension RecommendUser {
     }
     
     func with(
-        errorCode: Int? = nil,
-        message: String? = nil,
-        data: [RUDatum]? = nil
+        errorCode: Int?? = nil,
+        message: String?? = nil,
+        data: [RUDatum]?? = nil
         ) -> RecommendUser {
         return RecommendUser(
             errorCode: errorCode ?? self.errorCode,
@@ -60,13 +60,13 @@ extension RecommendUser {
 
 // MARK: - Datum
 struct RUDatum: Codable {
-    let userID: Int
-    let username: String
-    let avatar: String
-    let fansNum: Int
-    let tags: String
-    let monthRank: Int
-    let signature: JSONNull?
+    let userID: Int?
+    let username: String?
+    let avatar: String?
+    let fansNum: Int?
+    let tags: String?
+    let monthRank: Int?
+    let signature: String?
     
     enum CodingKeys: String, CodingKey {
         case userID = "user_ID"
@@ -97,13 +97,13 @@ extension RUDatum {
     }
     
     func with(
-        userID: Int? = nil,
-        username: String? = nil,
-        avatar: String? = nil,
-        fansNum: Int? = nil,
-        tags: String? = nil,
-        monthRank: Int? = nil,
-        signature: JSONNull?? = nil
+        userID: Int?? = nil,
+        username: String?? = nil,
+        avatar: String?? = nil,
+        fansNum: Int?? = nil,
+        tags: String?? = nil,
+        monthRank: Int?? = nil,
+        signature: String?? = nil
         ) -> RUDatum {
         return RUDatum(
             userID: userID ?? self.userID,

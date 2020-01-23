@@ -8,6 +8,7 @@
 
 import UIKit
 import JXSegmentedView
+import SDWebImage
 
 class AttendActionViewController: UITableViewController {
     var typeString: String = ""
@@ -17,34 +18,38 @@ class AttendActionViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
         tableView.allowsSelection = false
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Loading...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
-        refreshControl?.addTarget(self, action: #selector(headerRefresh), for: .valueChanged)
-//        tableView.register(AttendActionViewCell.self, forCellReuseIdentifier: "attendActionTableView")
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
-    
-    @objc func headerRefresh() {
-        refreshControl?.beginRefreshing()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(1)) {
-            self.refreshControl?.endRefreshing()
-            self.dataSource.removeAll()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm:ss"
-            let dateString = dateFormatter.string(from: Date())
-            for index in 0..<20 {
-                self.dataSource.append(String(format: "%@ 时间：%@ index:%d", self.typeString, dateString, index))
+    //图片下载
+    func downloadImage(_ imageURL: String?, forIndexPath indexPath: IndexPath) {
+        SDWebImageDownloader.shared.downloadImage(with: URL(string: imageURL!), options: SDWebImageDownloaderOptions.useNSURLCache, progress: { (receivedSize, expectedSize, url) in
+        }) { (image, data, error, finished) in
+            SDImageCache.shared.store(image, forKey: imageURL!, toDisk: true, completion: nil)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-            self.isDataLoaded = true
-            self.loadData()
-            self.tableView.reloadData()
         }
     }
     
-    func loadData() {
+    func configureCell(_ cell: AttendActionViewCell, at indexPath: IndexPath) {
+        let imgURL = self.fuva.data![indexPath.row].coverURL
+        let cachedImage = SDImageCache.shared.imageFromDiskCache(forKey: imgURL)
+
+        if cachedImage == nil {
+            downloadImage(imgURL!, forIndexPath: indexPath)
+            cell.video.setBackgroundImage(UIImage(named: "人气视频"), for: .normal)
+        } else {
+            cell.video.setBackgroundImage(cachedImage, for: .normal)
+        }
+    }
+    @objc func loadData() {
         MyStorage.limit = 3
         MyStorage.page = 1
-       // MyStorage.userID = "17"
+        MyStorage.userID = 17
         GetHelper.GetFUVA(success: { followUserVideoAction in
             self.fuva = followUserVideoAction
             self.tableView.reloadData()
@@ -66,21 +71,30 @@ class AttendActionViewController: UITableViewController {
         if fuva == nil {
             return AttendActionViewCell()
         }else{
-            return AttendActionViewCell(byModel: fuva, withIndex: indexPath.row)
+            let cell = AttendActionViewCell(byModel: fuva, withIndex: indexPath.row)
+            WorkStorage.videoId = fuva.data![indexPath.row].videoID!
+            cell.video.addTarget(self, action: #selector(toPlay), for: .touchUpInside)
+            self.configureCell(cell, at: indexPath)
+            return cell
         }
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = HomeDetailVeiwController()
-//        vc.detailText = dataSource[indexPath.row]
-//        naviController?.pushViewController(vc, animated: true)
-//    }
-//    
+    @objc func toPlay() {
+        navigationController?.pushViewController(PlayViewController(), animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return tableView.fd_heightForCell(withIdentifier: "attendActionTableView", configuration: { cell in
-//
-//        })
-        return view.height / 3
+        if self.fuva != nil {
+            var image = SDImageCache.shared.imageFromDiskCache(forKey: self.fuva.data![indexPath.row].coverURL)
+            if image == nil {
+                image = UIImage(named: "人气视频")
+            }
+        
+            let width = Screen.width - 28
+            let height = (width / (image?.size.width ?? 1)) * (image?.size.height ?? 1) + 133
+        
+            return height
+        }else{return 0}
     }
 
 }

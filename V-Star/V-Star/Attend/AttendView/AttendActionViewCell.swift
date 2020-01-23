@@ -18,7 +18,7 @@ class AttendActionViewCell: UITableViewCell {
     let releaseTime = UILabel()
     let complainImage = UIImageView()
     let complain = UILabel()
-    let video = UIImageView()
+    let video = UIButton()
     let suport = UIButton()
     let suportNum = UILabel()
     let share = UIButton()
@@ -93,6 +93,8 @@ class AttendActionViewCell: UITableViewCell {
         tags.sizeToFit()
     }
     
+    
+    
     func addView() {
         contentView.addSubview(avatar)
         avatar.snp.makeConstraints { make in
@@ -139,8 +141,8 @@ class AttendActionViewCell: UITableViewCell {
         contentView.addSubview(video)
         video.snp.makeConstraints { make in
             make.top.equalTo(avatar.snp.bottom).offset(12)
-            make.width.equalTo(self).offset(24)
-            make.centerX.equalTo(self)
+            make.left.equalTo(self).offset(14)
+            make.right.equalTo(self).inset(14)
         }
         contentView.addSubview(suport)
         suport.snp.makeConstraints { make in
@@ -214,11 +216,6 @@ class AttendActionViewCell: UITableViewCell {
     
     convenience init(byModel fuva: FollowUserVideoAction, withIndex index: Int) {
         self.init(style: .default, reuseIdentifier: "attendActionTableView")
-        
-        
-        if let temp = fuva.data![index].coverURL {
-            video.sd_setImage(with: URL(string: temp), completed: .none)
-        }
         if let temp = fuva.data![index].username {
             userName.text = temp
         }
@@ -239,6 +236,7 @@ class AttendActionViewCell: UITableViewCell {
         }
         setView()
         addView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

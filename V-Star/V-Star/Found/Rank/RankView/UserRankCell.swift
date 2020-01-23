@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class UserRankCell: UITableViewCell {
     
@@ -14,7 +15,7 @@ class UserRankCell: UITableViewCell {
     let isEnhance = UIImageView()
     let avatar = UIImageView()
     let userName = UILabel()
-    let likePng = UIImageView()
+    let likePng = UIImageView(image: UIImage(named: "助力圈"))
     let likeNum = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,15 +28,16 @@ class UserRankCell: UITableViewCell {
     
     func setView() {
         rankNum.textColor = UIColor(hex6: 0x333333)
-        rankNum.font = UIFont.flexibleSystemFont(ofSize: 14)
+        rankNum.font = UIFont.flexibleSystemFont(ofSize: 18)
         
         avatar.layer.masksToBounds = true
-        avatar.layer.cornerRadius = 15
-        avatar.layer.borderWidth = 1
+        avatar.layer.cornerRadius = 51 / 2
+        avatar.layer.borderWidth = 0.5
         avatar.layer.borderColor = UIColor.lightGray.cgColor
         
         userName.textColor = UIColor(hex6: 0x333333)
-        userName.font = UIFont.flexibleSystemFont(ofSize: 14)
+        userName.textAlignment = .left
+        userName.font = UIFont.flexibleSystemFont(ofSize: 16)
         
         likeNum.textColor = UIColor.starRed
         likeNum.font = UIFont.flexibleSystemFont(ofSize: 12)
@@ -45,44 +47,48 @@ class UserRankCell: UITableViewCell {
         contentView.addSubview(rankNum)
         contentView.addSubview(isEnhance)
         contentView.addSubview(avatar)
+        contentView.addSubview(userName)
         contentView.addSubview(likePng)
         contentView.addSubview(likeNum)
         
         rankNum.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
-            make.left.equalTo(contentView).offset(12)
+            make.left.equalTo(contentView).offset(16)
+            make.height.width.equalTo(23)
         }
         
         isEnhance.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
-            make.left.equalTo(rankNum.snp.right).offset(5)
+            make.left.equalTo(rankNum.snp.right).offset(6)
+            make.width.equalTo(34 / 3)
+            make.height.equalTo(37 / 3)
         }
         
         avatar.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
             make.left.equalTo(isEnhance.snp.right).offset(11)
+            make.height.width.equalTo(51)
         }
         
         userName.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
-            make.left.equalTo(avatar.snp.right).offset(16)
+            make.left.equalTo(avatar.snp.right).offset(10)
         }
         
         likeNum.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
-            make.right.equalTo(contentView).offset(-20)
+            make.right.equalTo(contentView).offset(-64 / 3)
         }
         
         likePng.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
-            make.right.equalTo(likeNum.snp.left).offset(-5)
+            make.right.equalTo(likeNum.snp.left).offset(-6)
+            make.width.height.equalTo(71 / 4)
         }
     }
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: "userRankCell")
-        setView()
-        addView()
     }
     
     convenience init(byModel userRank: UserRank, withIndex index: Int) {
@@ -90,8 +96,8 @@ class UserRankCell: UITableViewCell {
         setView()
         addView()
         rankNum.text = String(index + 3)
-        avatar.sd_setImage(with: URL(string: userRank.data[index + 3].avatar), completed: .none)
-        userName.text = userRank.data[index + 3].username
-        likeNum.text = String(userRank.data[index + 3].weekHotValue)
+        avatar.sd_setImage(with: URL(string: userRank.data![index + 3].avatar!), completed: .none)
+        userName.text = userRank.data![index + 3].username
+        likeNum.text = String(userRank.data![index + 3].weekHotValue ?? 0)
     }
 }

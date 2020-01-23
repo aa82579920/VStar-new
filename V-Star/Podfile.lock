@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - Alamofire (4.7.3)
   - AlivcConan (0.9.5):
     - AlivcConan/AlivcConan (= 0.9.5)
@@ -19,6 +34,7 @@ PODS:
   - WMPageController (2.3.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - Alamofire (~> 4.7.3)
   - AlivcConan
   - AliyunOSSiOS
@@ -35,6 +51,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - Alamofire
     - AlivcConan
     - AliyunOSSiOS
@@ -50,6 +67,7 @@ SPEC REPOS:
     - WMPageController
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlivcConan: 9dccc32986024768bb5f50e14ad54490123903c7
   AliyunOSSiOS: 602b6a4e70e62a5f0a6431c20496343141d7e66f
@@ -64,6 +82,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 9b15110aba1d502456d8e83677357e6437f2e751
   WMPageController: 9f219bb8912a1a1f51af11fde61e2682a7b7e7f2
 
-PODFILE CHECKSUM: 5d7d6961205b7ef1f1d6799d5b85db7480795bcf
+PODFILE CHECKSUM: ad42a5fee6e526d98ae9910169a367b9e9d7f0eb
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.0.beta.2

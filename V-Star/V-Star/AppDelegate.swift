@@ -8,6 +8,8 @@
 
 import UIKit
 
+let tabBarController = STTabBarController()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
@@ -20,52 +22,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 //        WXApi.registerApp(weChatAPPID, universalLink: <#T##String#>)
         WXApi.registerApp(weChatAPPID)
         
-        let homeViewController = HomeViewController()
-        homeViewController.tabBarItem.image = nil
-        homeViewController.tabBarItem.title = "首页"
-        homeViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        homeViewController.tabBarItem.badgeColor = UIColor(hex6: 0xcccccc)
-        homeViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        
-        let attentViewController = AttentViewController()
-        attentViewController.tabBarItem.image = nil
-        attentViewController.tabBarItem.title = "关注"
-        attentViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        attentViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        
-        let setViewController = SetViewController()
-        setViewController.tabBarItem.image = UIImage(named: "摄像头")?.withRenderingMode(.alwaysOriginal)
-        setViewController.tabBarItem.selectedImage = UIImage(named: "摄像头")
-        //FIXME: - 不同机型图的大小会不同。。。
-        setViewController.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 40, bottom: 0, right: 40)
-        setViewController.tabBarItem.title = nil
-        
-        let foundViewController = FoundViewController()
-        foundViewController.tabBarItem.image = nil
-        foundViewController.tabBarItem.title = "发现"
-        foundViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        foundViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        
-        let mineViewController = MineViewController()
-//        mineViewController.tabBarItem.image = nil
-//        mineViewController.tabBarItem.title = "我的"
-//        mineViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        mineViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        let mineNavigationController = UINavigationController(rootViewController: mineViewController)
-        mineNavigationController.tabBarItem.title = "我的"
-        mineNavigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        mineNavigationController.tabBarItem.image = nil
-        
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = UIColor(hex6: 0xe2294b)
-        tabBarController.tabBar.barTintColor = .black
-        //tabBarController.viewControllers = [homeViewController,attentViewController,setViewController,foundViewController,mineViewController]
-        tabBarController.viewControllers = [homeViewController,attentViewController,setViewController,foundViewController,mineNavigationController]
+        let homeViewController = UINavigationController.init(rootViewController: HomeViewController())
+        let attendViewController = UINavigationController.init(rootViewController: AttentViewController())
+        let foundViewController = UINavigationController.init(rootViewController: FoundViewController())
+        let mineViewController = UINavigationController.init(rootViewController: MineViewController())
+        homeViewController.setNavigationBarHidden(true, animated: false)
+        attendViewController.setNavigationBarHidden(true, animated: false)
+        foundViewController.setNavigationBarHidden(true, animated: false)
+        mineViewController.setNavigationBarHidden(true, animated: false)
+        tabBarController.addChildController(childController: homeViewController, title: "首页")
+        tabBarController.addChildController(childController: attendViewController, title: "关注")
+        tabBarController.addChildController(childController: foundViewController, title: "发现")
+        tabBarController.addChildController(childController: mineViewController, title: "我的")
+        let tabbarController = UINavigationController.init(rootViewController: tabBarController)
+        tabbarController.setNavigationBarHidden(true, animated: false)
+        self.window?.rootViewController = tabbarController
         window?.backgroundColor = .white
-        let loginVC = SignInViewController()
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.makeKeyAndVisible()
-        window?.rootViewController = loginVC
+        
+        if UserDefaults.standard.bool(forKey: "everLaunched") == false {
+            UserDefaults.standard.set(true, forKey: "everLaunched")
+            UserDefaults.standard.set(true, forKey: "firstLaunch")
+        }else{
+            UserDefaults.standard.set(false, forKey: "firstLaunch")
+        }
         return true
     }
 
@@ -93,14 +72,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        let urlKey: String = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String
+//        let urlKey: String = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String
         
-        if urlKey == "com.tencent.xin" {
+//        if urlKey == "com.tencent.xin" {
             // 微信 的回调
             return  WXApi.handleOpen(url, delegate: self)
-        }
+//        }
         
-        return true
+//        return true
     }
     
     

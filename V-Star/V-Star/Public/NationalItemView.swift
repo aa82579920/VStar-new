@@ -7,12 +7,28 @@
 //
 
 import UIKit
+import SnapKit
 //通用的小标签
-class NationalItemView: UIView {
+class NationalTagView: UIView {
     let textLabel = UILabel()
-    convenience init(content: String, color: UIColor, suitToLength: Bool) {
-        self.init(content: content, color: color, suitToLength: suitToLength)
-        self.setView()
+    var content: String!
+    var color: UIColor!
+    var backImage: UIImageView!
+    var suitToLength: Bool!
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setView()
+        defaultData()
+    }
+    
+    func defaultData() {
+        self.content = ""
+        self.color = .red
+        self.width = 30
+        self.height = 16
+        self.suitToLength = true
+    }
+    func setTextLabel(content: String, color: UIColor) {
         textLabel.text = content
         textLabel.font = UIFont.flexibleSystemFont(ofSize: 16)
         textLabel.backgroundColor = color
@@ -21,11 +37,8 @@ class NationalItemView: UIView {
             textLabel.sizeToFit()
             self.width = textLabel.width
         }
-        addLabel()
     }
-    convenience init(content: String, backImage: UIImageView, suitToLength: Bool) {
-        self.init(content: content, backImage: backImage, suitToLength: suitToLength)
-        setView()
+    func setTextLabel(content: String, backImage: UIImageView) {
         self.addSubview(backImage)
         backImage.snp.makeConstraints { make in
             make.edges.equalTo(self)
@@ -37,15 +50,17 @@ class NationalItemView: UIView {
             textLabel.sizeToFit()
             self.width = textLabel.width
         }
-        addLabel()
+        self.addSubview(backImage)
+        backImage.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     func setView() {
-        self.width = 30
-        self.height = 16
+        
         self.layer.masksToBounds = true
         self.layer.cornerRadius = self.height / 2
     }

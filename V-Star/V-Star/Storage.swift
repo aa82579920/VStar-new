@@ -27,14 +27,17 @@ struct MyStorage {
     static var age = 0                //年龄
     static var signature = ""         //个性签名
     static var tags = [String]()      //标签
-    static var limit = 0              //关注或评论每页返回的条数
+    static var limit = 3              //关注或评论每页返回的条数
     static var page = 0               //关注或评论页数
     static var nickname = ""           // 昵称
+    static var rank = ""
+
 }
 
 struct WorkStorage {
     static var userID = ""            //作者ID(可以是动态/作品/评论/评论的评论的作者）
     static var workId = ""            //作品id
+    static var videoId = ""           //视频id
     static var commentId = ""         //评论id
     static var commentContent = ""    //评论内容
     static var ccID = ""              //评论的评论id
@@ -53,8 +56,8 @@ struct WorkStorage {
     static var model = 0              //私信参数（1全部，2未读）
     static var messageID = ""         //私信ID
     static var num = 0                //榜单返回数
-    static var history = [Int]()      //播放历史
-    static var habit = [Int]()        //播放习惯
+    static var history = "1,2"     //播放历史
+    static var habit = "2,0,0,0,0,0"       //播放习惯
     static var mode = 1               //mode = 1 hot_first
                                       //mode = 2 time_first
     
@@ -136,12 +139,12 @@ struct VStar_URL {
     }
     
     struct work {
-        static let getWorkTypes = "/api/work/getWorkTypes"//获取类型
-        static let getWorkByID = "/api/work/getWorkByID"  //根据workID获取视频详情
-        static let getRecommendWork = "/api/work/getRecommendWork"//根据用户习惯获取推荐
-        static let deleteWorkByID = "/api/work/deleteWorkByID"//根据workID删除作品
-        static let getWorkByUserID = "/api/work/getWorkByUserID"//根据用户ID获取该用户所有作品
-        static let getWorkByTypeID = "/api/work/getWorkByTypeID"//按类型ID获取作品
+        static let getWorkTypes = "/work/getWorkTypes"//获取类型
+        static let getWorkByID = "/work/getWorkByID"  //根据workID获取视频详情
+        static let getRecommendWork = "/work/getRecommendWork"//根据用户习惯获取推荐
+        static let deleteWorkByID = "/work/deleteWorkByID"//根据workID删除作品
+        static let getWorkByUserID = "/work/getWorkByUserID"//根据用户ID获取该用户所有作品
+        static let getWorkByTypeID = "/work/getWorkByTypeID"//按类型ID获取作品
     }
     
     struct fanCircle {

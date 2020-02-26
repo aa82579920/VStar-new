@@ -9,7 +9,6 @@
 import UIKit
 import JXSegmentedView
 import SDWebImage
-
 class AttendActionViewController: UITableViewController {
     var typeString: String = ""
     var dataSource = [String]()
@@ -64,6 +63,12 @@ class AttendActionViewController: UITableViewController {
             return 3
         }else{
             return fuva.data!.count
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.fuva != nil {
+            WorkStorage.videoId = fuva.data![indexPath.row].videoID!
+            navigationController?.pushViewController(PlayViewController(), animated: true)
         }
     }
     

@@ -10,8 +10,9 @@ import UIKit
 import SnapKit
 import Alamofire
 import SwiftyJSON
+
 class SignInViewController: UIViewController, WXApiDelegate {
-    
+    let tabBar = STTabBarController()
     var backView = UIImageView()
     let vtitle = UILabel()
     let userName = UILabel()
@@ -243,11 +244,14 @@ class SignInViewController: UIViewController, WXApiDelegate {
 
 extension SignInViewController {
     @objc func SignUp() {
-        self.navigationController?.pushViewController(SignUpVC(), animated: true)
+       // self.present(SignUpVC(), animated: true)
     }
     
     @objc func clickQQ() {
-        print("qq被点击了")
+        let alert = UIAlertController(title: "提示", message: "qq登录暂时不可用", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func clickWeiXin() {
@@ -262,7 +266,10 @@ extension SignInViewController {
     }
     
     @objc func clickWeiBo() {
-        print("微博被点击了")
+        let alert = UIAlertController(title: "提示", message: "微博登录暂时不可用", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func login() {
@@ -307,47 +314,22 @@ extension SignInViewController {
     }
     
     func afterLogin() {
-        let homeViewController = HomeViewController()
-        homeViewController.tabBarItem.image = nil
-        homeViewController.tabBarItem.title = "首页"
-        homeViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        homeViewController.tabBarItem.badgeColor = UIColor(hex6: 0xcccccc)
-        homeViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        
-        let attentViewController = AttentViewController()
-        attentViewController.tabBarItem.image = nil
-        attentViewController.tabBarItem.title = "关注"
-        attentViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        attentViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        
-        let setViewController = SetViewController()
-        setViewController.tabBarItem.image = UIImage(named: "摄像头")?.withRenderingMode(.alwaysOriginal)
-        setViewController.tabBarItem.selectedImage = UIImage(named: "摄像头")
-        //FIXME: - 不同机型图的大小会不同。。。
-        setViewController.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 40, bottom: 0, right: 40)
-        setViewController.tabBarItem.title = nil
-        
-        let foundViewController = FoundViewController()
-        foundViewController.tabBarItem.image = nil
-        foundViewController.tabBarItem.title = "发现"
-        foundViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        foundViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        
-        let mineViewController = MineViewController()
-        mineViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        
-        let mineNavigationController = UINavigationController(rootViewController: mineViewController)
-        mineNavigationController.tabBarItem.title = "我的"
-        mineNavigationController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], for: .normal)
-        mineNavigationController.tabBarItem.image = nil
-        
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = UIColor(hex6: 0xe2294b)
-        tabBarController.tabBar.barTintColor = .black
-        
-        tabBarController.viewControllers = [homeViewController,attentViewController,setViewController,foundViewController,mineNavigationController]
-        
-        self.present(tabBarController, animated: true, completion: nil)
+        let homeViewController = UINavigationController.init(rootViewController: HomeViewController())
+        let attendViewController = UINavigationController.init(rootViewController: AttentViewController())
+        let foundViewController = UINavigationController.init(rootViewController: FoundViewController())
+        let mineViewController = UINavigationController.init(rootViewController: MineViewController())
+        homeViewController.setNavigationBarHidden(true, animated: false)
+        attendViewController.setNavigationBarHidden(true, animated: false)
+        foundViewController.setNavigationBarHidden(true, animated: false)
+        mineViewController.setNavigationBarHidden(true, animated: false)
+        tabBar.addChildController(childController: homeViewController, title: "首页")
+        tabBar.addChildController(childController: attendViewController, title: "关注")
+        tabBar.addChildController(childController: foundViewController, title: "发现")
+        tabBar.addChildController(childController: mineViewController, title: "我的")
+        let tabbarController = UINavigationController.init(rootViewController: tabBar)
+        tabbarController.setNavigationBarHidden(true, animated: false)
+        tabbarController.modalPresentationStyle = .fullScreen
+        self.present(tabbarController, animated: true, completion: nil)
     }
 }
 extension SignInViewController: UITextFieldDelegate {

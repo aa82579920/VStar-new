@@ -2,16 +2,16 @@
 //  SignUpVC.swift
 //  V-Star
 //
-//  Created by 王申宇 on 2019/8/19.
+//  Created by 王春杉 on 2019/8/19.
 //  Copyright © 2019 mac. All rights reserved.
 //
-// - MARK: 谁能告诉我为什么设计图和后台给的东西都不一样？？？
 import UIKit
 import SnapKit
 
 class SignUpVC: UIViewController {
     
     let backBtn = UIButton()              //返回
+    var backView = UIImageView()
     let signTitle = UILabel()             //界面标题
     let phoneNumber = UITextField()       //输入手机号码
     let indentify = UITextField()         //输入验证码
@@ -22,12 +22,17 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setView()
+        addView()
     }
     
     private func setView() {
         
         backBtn.setImage(UIImage(named: "后退"), for: .normal)
         backBtn.addTarget(.none, action: #selector(back), for: .touchUpInside)
+        
+        backView = UIImageView(frame: self.view.bounds)
+        backView.image = UIImage(named: "loginBack")
         
         signTitle.text = "注册"
         signTitle.textColor = .white

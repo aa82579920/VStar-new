@@ -70,6 +70,7 @@
 		74A24E6523D59A8A0036FE47 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A24E6423D59A8A0036FE47 /* libz.tbd */; };
 		74A24E6723D59A990036FE47 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A24E6623D59A990036FE47 /* libsqlite3.0.tbd */; };
 		74A24E6923D59AA50036FE47 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A24E6823D59AA50036FE47 /* libc++.tbd */; };
+		74A2503123D9B8EA0036FE47 /* SetUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A2503023D9B8EA0036FE47 /* SetUpController.swift */; };
 		74AFDDA9235D78BC00D92E2A /* FansCircleContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AFDDA8235D78BC00D92E2A /* FansCircleContentController.swift */; };
 		74AFDDAB235D9D2800D92E2A /* FansCirclePingLunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AFDDAA235D9D2800D92E2A /* FansCirclePingLunTableViewCell.swift */; };
 		74DF7C51234EE93F00A3AC1B /* FansCircleFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF7C50234EE93F00A3AC1B /* FansCircleFirstViewController.swift */; };
@@ -217,6 +218,7 @@
 		74A24E6423D59A8A0036FE47 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		74A24E6623D59A990036FE47 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		74A24E6823D59AA50036FE47 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		74A2503023D9B8EA0036FE47 /* SetUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpController.swift; sourceTree = "<group>"; };
 		74AFDDA8235D78BC00D92E2A /* FansCircleContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FansCircleContentController.swift; sourceTree = "<group>"; };
 		74AFDDAA235D9D2800D92E2A /* FansCirclePingLunTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FansCirclePingLunTableViewCell.swift; sourceTree = "<group>"; };
 		74DF7C50234EE93F00A3AC1B /* FansCircleFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FansCircleFirstViewController.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 				97112794231622CC00A042C2 /* Found */,
 				971127932316227700A042C2 /* Attend */,
 				9711278F231621BC00A042C2 /* Mine */,
+				74A2502E23D9B88C0036FE47 /* Setting */,
 				74DF7C4F234EE8B600A3AC1B /* FansCircle */,
 				970E98B82313516C002FEBD8 /* Login */,
 				046A303022DEBBC500AEC03C /* AppDelegate.swift */,
@@ -522,6 +525,22 @@
 				0464FB5223D9761000EEFDC5 /* HomeCollectionView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		74A2502E23D9B88C0036FE47 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				74A2502F23D9B8B70036FE47 /* Controller */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		74A2502F23D9B8B70036FE47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				74A2503023D9B8EA0036FE47 /* SetUpController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		74DF7C4F234EE8B600A3AC1B /* FansCircle */ = {
@@ -1059,6 +1078,7 @@
 				9711278423160F3B00A042C2 /* AttendAttendViewController.swift in Sources */,
 				970E98BF23135226002FEBD8 /* AttendActionViewController.swift in Sources */,
 				732FB00F234B1F2900B23CA2 /* HomeCell.swift in Sources */,
+				74A2503123D9B8EA0036FE47 /* SetUpController.swift in Sources */,
 				0464FB8A23D97D0C00EEFDC5 /* RankTotalTopView.swift in Sources */,
 				971228F8231A0F8800439223 /* ActivitiesCell.swift in Sources */,
 				0464FB9E23D97E4E00EEFDC5 /* UploadMoney.swift in Sources */,
@@ -1285,6 +1305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "V-Star/V-Star.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5255A542MU;
 				ENABLE_BITCODE = NO;
@@ -1295,6 +1316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1310,7 +1332,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "V-Star/V-Star.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5255A542MU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "V-Star/Info.plist";
@@ -1320,6 +1343,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "第一次打包";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

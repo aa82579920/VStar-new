@@ -2,7 +2,7 @@
 //  MineViewController.swift
 //  V-Star
 //
-//  Created by 王申宇 on 2019/8/1.
+//  Created by 王春杉 on 2019/8/1.
 //  Copyright © 2019 mac. All rights reserved.
 //
 
@@ -87,7 +87,7 @@ class MineViewController: UIViewController {
 
 extension MineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,8 +102,10 @@ extension MineViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             cell.textLabel?.text = "我的收藏"
         case 3:
-            cell.textLabel?.text = "粉丝圈"
+            cell.textLabel?.text = "我的红包"
         case 4:
+            cell.textLabel?.text = "粉丝圈"
+        case 5:
             cell.textLabel?.text = "商务圈"
         default:
             cell.textLabel?.text = "设置"
@@ -130,14 +132,20 @@ extension MineViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             print("我的收藏被点击了")
         case 3:
+            print("我的红包被点击了")
+        case 4:
             print("粉丝圈被点击了")
             let fansFirstVC = FansCircleFirstViewController()
             fansFirstVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(fansFirstVC, animated: true)
-        case 4:
-            print("商务圈被点击了")
         case 5:
+            print("商务圈被点击了")
+        case 6:
             print("设置被点击了")
+            let setUpVC = SetUpController()
+            setUpVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(setUpVC, animated: true)
+            
         default:
             print("default")
         }

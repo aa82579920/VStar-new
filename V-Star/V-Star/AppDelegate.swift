@@ -36,7 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         tabBarController.addChildController(childController: mineViewController, title: "我的")
         let tabbarController = UINavigationController.init(rootViewController: tabBarController)
         tabbarController.setNavigationBarHidden(true, animated: false)
-        self.window?.rootViewController = tabbarController
+        
+        var loginVC = SignInViewController()
+        self.window?.rootViewController = loginVC
         window?.backgroundColor = .white
         
         if UserDefaults.standard.bool(forKey: "everLaunched") == false {

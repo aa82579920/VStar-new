@@ -104,6 +104,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if self.collectionView.recommendWork != nil {
+            print("\(indexPath.row)被点击了")
             WorkStorage.videoId = self.collectionView.recommendWork.data[indexPath.row].videoID!
             WorkStorage.userID = String(self.collectionView.recommendWork.data[indexPath.row].userID!)
 //            WorkStorage.

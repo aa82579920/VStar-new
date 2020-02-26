@@ -62,6 +62,7 @@
 		732FB00C23476EF400B23CA2 /* VStar-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 732FB00B23476EF400B23CA2 /* VStar-Bridging-Header.h */; };
 		732FB00F234B1F2900B23CA2 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732FB00E234B1F2900B23CA2 /* HomeCell.swift */; };
 		740959102351BC220057D935 /* DongTaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409590F2351BC220057D935 /* DongTaiTableViewCell.swift */; };
+		744A37BB24069C4F00666207 /* PersonnalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37BA24069C4F00666207 /* PersonnalPageController.swift */; };
 		74A1573223657E2C00A5FF80 /* UserFandomList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A1573123657E2C00A5FF80 /* UserFandomList.swift */; };
 		74A24E5D23D59A500036FE47 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A24E5C23D59A500036FE47 /* SystemConfiguration.framework */; };
 		74A24E5F23D59A5B0036FE47 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A24E5E23D59A5B0036FE47 /* Security.framework */; };
@@ -210,6 +211,7 @@
 		732FB00B23476EF400B23CA2 /* VStar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "VStar-Bridging-Header.h"; path = "../VStar-Bridging-Header.h"; sourceTree = "<group>"; };
 		732FB00E234B1F2900B23CA2 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		7409590F2351BC220057D935 /* DongTaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DongTaiTableViewCell.swift; sourceTree = "<group>"; };
+		744A37BA24069C4F00666207 /* PersonnalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnalPageController.swift; sourceTree = "<group>"; };
 		74A1573123657E2C00A5FF80 /* UserFandomList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFandomList.swift; sourceTree = "<group>"; };
 		74A24E5C23D59A500036FE47 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		74A24E5E23D59A5B0036FE47 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -496,6 +498,7 @@
 				97112795231622F400A042C2 /* Video */,
 				97112794231622CC00A042C2 /* Found */,
 				971127932316227700A042C2 /* Attend */,
+				744A37B624069BFC00666207 /* PersonalPage */,
 				9711278F231621BC00A042C2 /* Mine */,
 				74A2502E23D9B88C0036FE47 /* Setting */,
 				74DF7C4F234EE8B600A3AC1B /* FansCircle */,
@@ -525,6 +528,38 @@
 				0464FB5223D9761000EEFDC5 /* HomeCollectionView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		744A37B624069BFC00666207 /* PersonalPage */ = {
+			isa = PBXGroup;
+			children = (
+				744A37B924069C3D00666207 /* View */,
+				744A37B824069C3700666207 /* Controller */,
+				744A37B724069C2F00666207 /* Model */,
+			);
+			path = PersonalPage;
+			sourceTree = "<group>";
+		};
+		744A37B724069C2F00666207 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		744A37B824069C3700666207 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				744A37BA24069C4F00666207 /* PersonnalPageController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		744A37B924069C3D00666207 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		74A2502E23D9B88C0036FE47 /* Setting */ = {
@@ -1133,6 +1168,7 @@
 				971127862316123500A042C2 /* RankVIewController.swift in Sources */,
 				0464FBA423D97E8400EEFDC5 /* InvitationLog.swift in Sources */,
 				0464FB5F23D9770200EEFDC5 /* ExportViewController.swift in Sources */,
+				744A37BB24069C4F00666207 /* PersonnalPageController.swift in Sources */,
 				0464FB8423D97BDC00EEFDC5 /* PlayerManager.swift in Sources */,
 				971228F423191A9600439223 /* WorkByUserID.swift in Sources */,
 				0464FB3D23D9736400EEFDC5 /* STTabBar.swift in Sources */,

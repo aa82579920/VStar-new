@@ -13,7 +13,7 @@ class UserCardView: UIView {
     let rank = UILabel()             // 排名
     let rankNum = UILabel()
     let userName = UILabel()         // 用户名
-    let information = UIView()       // 详细信息
+    let information = UILabel()       // 详细信息
     let sex = UILabel()              /// 性别
     let age = UILabel()              /// 年龄
     let city = UILabel()             /// 城市
@@ -51,13 +51,18 @@ class UserCardView: UIView {
         
         userName.backgroundColor = UIColor.starRed
         userName.textColor = UIColor(hex6: 0xffffff)
-        userName.font = UIFont.flexibleSystemFont(ofSize: 20)
+        userName.text = "世界无敌第一丧女孩"
+        userName.font = UIFont.flexibleSystemFont(ofSize: 18)
         
         information.backgroundColor = UIColor.starRed
+        information.text = "♂ | 21岁 | 日本东京"
+        information.textColor = UIColor(hex6: 0xffffff)
+        information.font = UIFont.flexibleSystemFont(ofSize: 14)
         
         id.backgroundColor = UIColor.starRed
         id.textColor = UIColor(hex6: 0xffffff)
         id.font = UIFont.flexibleSystemFont(ofSize: 16)
+        id.text = "ID: shijiewudidiyisangnvhai"
         
         trends.backgroundColor = UIColor.starRed
         trends.textColor = UIColor(hex6: 0xffffff)
@@ -99,6 +104,7 @@ class UserCardView: UIView {
         myPageBtn.setTitle("进入个人主页>>", for: .normal)
         myPageBtn.titleLabel?.textColor = UIColor(hex6: 0xffffff)
         myPageBtn.titleLabel?.font = UIFont.flexibleSystemFont(ofSize: 16)
+        myPageBtn.titleLabel?.textAlignment = .right
     }
     
     func addView() {
@@ -121,15 +127,15 @@ class UserCardView: UIView {
         self.addSubview(userName)
         userName.snp.makeConstraints { make in
             make.left.equalTo(self).offset(20)
-            make.top.equalTo(self).offset(45)
+            make.top.equalTo(self).offset(56)
             make.height.equalTo(self.height / 7)
-            make.width.equalTo(self.width / 2)
+//            make.width.equalTo(self.width / 2)
         }
         
         self.addSubview(information)
         information.snp.makeConstraints { make in
-            make.left.equalTo(userName.snp.right).offset(16)
-            make.top.equalTo(userName)
+            make.left.equalTo(userName.snp.right).offset(10)
+            make.bottom.equalTo(userName)
             make.height.equalTo(self.height / 7)
             make.width.equalTo(self.width / 2)
         }
@@ -139,7 +145,7 @@ class UserCardView: UIView {
             make.left.equalTo(userName)
             make.top.equalTo(userName.snp.bottom).offset(10)
             make.height.equalTo(self.height / 9)
-            make.width.equalTo(self.width / 2)
+            
         }
         
         self.addSubview(trends)
@@ -155,7 +161,7 @@ class UserCardView: UIView {
             make.left.equalTo(trends.snp.right).offset(10)
             make.bottom.equalTo(trends)
             make.height.equalTo(self.height / 6)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 10)
         }
         
         self.addSubview(fans)
@@ -163,7 +169,7 @@ class UserCardView: UIView {
             make.left.equalTo(trendsContent.snp.right).offset(10)
             make.bottom.equalTo(trends)
             make.height.equalTo(self.height / 6)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 10)
         }
         
         self.addSubview(fansContent)
@@ -171,7 +177,7 @@ class UserCardView: UIView {
             make.left.equalTo(fans.snp.right).offset(10)
             make.bottom.equalTo(trends)
             make.height.equalTo(self.height / 6)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 10)
         }
         
         self.addSubview(popular)
@@ -179,7 +185,7 @@ class UserCardView: UIView {
             make.left.equalTo(fansContent.snp.right).offset(10)
             make.bottom.equalTo(trends)
             make.height.equalTo(self.height / 6)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 10)
         }
         
         self.addSubview(popularContent)
@@ -187,7 +193,7 @@ class UserCardView: UIView {
             make.left.equalTo(popular.snp.right).offset(10)
             make.bottom.equalTo(trends)
             make.height.equalTo(self.height / 6)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 10)
         }
         
         self.addSubview(attend)
@@ -195,7 +201,7 @@ class UserCardView: UIView {
             make.left.equalTo(popularContent.snp.right).offset(10)
             make.bottom.equalTo(trends)
             make.height.equalTo(self.height / 6)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 10)
         }
         
         self.addSubview(attendContent)
@@ -203,17 +209,18 @@ class UserCardView: UIView {
             make.left.equalTo(attend).offset(10)
             make.bottom.equalTo(trends)
             make.height.equalTo(self.height / 6)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 10)
         }
         
         self.addSubview(myPageBtn)
         myPageBtn.snp.makeConstraints { make in
-            make.right.equalTo(self)
-            make.bottom.equalTo(self).offset(10)
+            make.right.equalTo(self).offset(-10)
+            make.bottom.equalTo(self).offset(-10)
             make.height.equalTo(self.height / 8)
-            make.width.equalTo(self.width / 9)
+            make.width.equalTo(self.width / 3)
         }
     }
+    
 }
 
 class MineTableView: UITableView {
@@ -236,7 +243,7 @@ class MineTableView: UITableView {
             make.bottom.equalTo(myHeaderView)
             make.left.equalTo(myHeaderView).offset(5)
             make.right.equalTo(myHeaderView).offset(-5)
-            make.height.equalTo(UIScreen.main.bounds.height * 6 / 25)
+            make.height.equalTo(UIScreen.main.bounds.height * 6 / 20)
         }
         userLabel.setView()
         userLabel.addView()

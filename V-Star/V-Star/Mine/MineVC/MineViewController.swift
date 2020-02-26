@@ -12,9 +12,13 @@ import SDWebImage
 class MineViewController: UIViewController {
     var mySelfInfo: MySelf!
     let mineCardTableView = MineTableView()
+    var card: UserCardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        card = mineCardTableView.userLabel.self
+        card.myPageBtn.addTarget(self, action: #selector(clickPageBtn), for: .touchUpInside)
+        
         mineCardTableView.delegate = self
         mineCardTableView.dataSource = self
         mineCardTableView.setView()
@@ -52,7 +56,6 @@ class MineViewController: UIViewController {
     }
     //- MARK: 人气值  动态数都没给
     private func setMindCard() {
-        let card = mineCardTableView.userLabel.self
         card.userName.text = mySelfInfo.data?.username
         if let temo = mySelfInfo.data?.userID {
             card.id.text = "ID:" + String(temo)
@@ -81,7 +84,11 @@ class MineViewController: UIViewController {
             card.fansContent.text = ""
         }
     }
-    
+    @objc func clickPageBtn() {
+        let personalPageVC = PersonnalPageController()
+        personalPageVC.hidesBottomBarWhenPushed = true
+        self.navigationController!.pushViewController(personalPageVC, animated: true)
+    }
 }
 
 

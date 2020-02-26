@@ -12,7 +12,7 @@ import Foundation
 struct PublicParameter {
     static var secretKey = PublicParameter.appKey + String.md5(str: PublicParameter.requestTime)
     static var requestTime = String.getDateNow()
-    static var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmJ1aWxkc3Rhci50b3A6ODg4OFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU2NjQzMDIxMSwiZXhwIjoxNTY2NTE2NjExLCJuYmYiOjE1NjY0MzAyMTEsImp0aSI6IklvendLTVFMd1dSVmljNFciLCJzdWIiOjE3LCJwcnYiOiI1NjAzYTVkYzY4NDI1ZTQzZDdkNTA3ZjFlYjQ2OGE2MjdhYjQzY2YyIn0.bPbjR4Zr5iMVyzOITvYqCrH67B5E_0lIubtllOaghhY"
+    static var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmJ1aWxkc3Rhci50b3A6ODg4OFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU4MjcyMDU3MywiZXhwIjoxNTgyODA2OTczLCJuYmYiOjE1ODI3MjA1NzMsImp0aSI6IllPNjZWZE8wTGpTSm1jdloiLCJzdWIiOjE3LCJwcnYiOiI1NjAzYTVkYzY4NDI1ZTQzZDdkNTA3ZjFlYjQ2OGE2MjdhYjQzY2YyIn0.p_yilp_5aPmCxstHWegbIPiLKb7mVbaO1VxYxX_7QPk"
     static let appKey = "af4dg52ed%3@"
     static var userID = MyStorage.userID
 }

@@ -15,7 +15,7 @@ struct TaskStorage {
 struct TaskHelper {
     static func signDay(success: @escaping (SignDay) -> Void, failure: @escaping (Error) -> Void) {
         var myParam = ["user_ID": MyStorage.userID] as [String: Any]
-        VStarHelper.dataStar(url: Task.signDay, myMethod: .get, param: &myParam, success: { dic in
+        VStarHelper.dataStar(url: Task.signDay, myMethod: .post, param: &myParam, success: { dic in
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let mySelf = try? SignDay(data: data) {
                 success(mySelf)
             }

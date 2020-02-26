@@ -3,4 +3,54 @@
    uuid = "CB782D25-74D6-4229-864A-6C294CAE68E6"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE50C97C-A56A-4F69-8D58-0AA911AA1E98"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "V-Star/Task/Controller/TaskViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FE50C97C-A56A-4F69-8D58-0AA911AA1E98 - e057242d02c9882"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "V_Star.TaskViewController.(loadData in _AD9364579CA550050080C6810C75689C)() -&gt; ()"
+                  moduleName = "V-Star"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/malbeshaba/StarFINSH/VStar-new/V-Star/V-Star/Task/Controller/TaskViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "229">
+               </Location>
+               <Location
+                  uuid = "FE50C97C-A56A-4F69-8D58-0AA911AA1E98 - de1365a8f0ca4204"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (V_Star.WeekInfo) -&gt; () in V_Star.TaskViewController.(loadData in _AD9364579CA550050080C6810C75689C)() -&gt; ()"
+                  moduleName = "V-Star"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/malbeshaba/StarFINSH/VStar-new/V-Star/V-Star/Task/Controller/TaskViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "909">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -7,18 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
 class TaskTableView: UITableView {
     var weekInfo: WeekInfo!
-    var getSignBtn: UIButton!
-    var getUploadBtn: UIButton!
-    var getWatchBtn: UIButton!
+    let getSignBtn = UIButton()
+    let getUploadBtn = UIButton()
+    let getWatchBtn = UIButton()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .grouped)
         self.delegate = self
         self.dataSource = self
-        loadData()
+//        loadData()
         self.reloadData()
     }
     func loadData() {
@@ -29,28 +30,11 @@ class TaskTableView: UITableView {
             print("error")
         }
     }
-    private func loginCount(_ weekInfo: WeekInfo) -> Int{
+    public func loginCount(_ weekInfo: WeekInfo) -> Int{
         var count = 0
-        if weekInfo.data?.day1 != "" {
-            count = count + 1
-        }
-        if weekInfo.data?.day2 != "" {
-            count = count + 1
-        }
-        if weekInfo.data?.day3 != "" {
-            count = count + 1
-        }
-        if weekInfo.data?.day4 != "" {
-            count = count + 1
-        }
-        if weekInfo.data?.day5 != "" {
-            count = count + 1
-        }
-        if weekInfo.data?.day6 != "" {
-            count = count + 1
-        }
-        if weekInfo.data?.day7 != "" {
-            count = count + 1
+        let array = [weekInfo.data?.day1, weekInfo.data?.day2, weekInfo.data?.day3, weekInfo.data?.day4, weekInfo.data?.day5, weekInfo.data?.day6, weekInfo.data?.day7]
+        for i in array {
+            if i != "" { count = count + 1 }
         }
         return count
     }
@@ -60,14 +44,22 @@ class TaskTableView: UITableView {
 }
 
 extension TaskTableView: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if section == 0 {
+            return 3
+        }else{
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = .white
-        if weekInfo != nil {
+        if weekInfo != nil && indexPath.section == 0 {
             switch indexPath.row {
             case 0:
                 let firstLabel = UILabel()
@@ -99,13 +91,11 @@ extension TaskTableView: UITableViewDelegate, UITableViewDataSource {
                     make.centerY.equalTo(cell)
                     make.left.equalTo(dayLabel.snp.right).offset(20)
                 }
-                getSignBtn = UIButton()
                 getSignBtn.backgroundColor = .white
                 getSignBtn.setTitle("领取", for: .normal)
                 getSignBtn.layer.cornerRadius = 15
                 getSignBtn.layer.borderWidth = 1
-                getSignBtn.addTarget(self, action: #selector(toSignDay), for: .touchUpInside)
-                if (weekInfo.data?.isTodaySigned)! == false {
+                if (weekInfo.data?.isTodaySigned)! == true {
                     getSignBtn.setTitleColor(UIColor(hex6: 0x999999), for: .normal)
                     getSignBtn.layer.borderColor = UIColor(hex6: 0x999999).cgColor
                     getSignBtn.isSelected = false
@@ -131,13 +121,11 @@ extension TaskTableView: UITableViewDelegate, UITableViewDataSource {
                     make.centerY.equalTo(cell)
                     make.left.equalTo(30)
                 }
-                getUploadBtn = UIButton()
                 getUploadBtn.backgroundColor = .white
                 getUploadBtn.setTitle("领取", for: .normal)
                 getUploadBtn.layer.cornerRadius = 15
                 getUploadBtn.layer.borderWidth = 1
-                getUploadBtn.addTarget(self, action: #selector(getUploadMoney), for: .touchUpInside)
-                if (weekInfo.data?.isTodayTakeUploadMoney)!  == false {
+                if (weekInfo.data?.isTodayTakeUploadMoney)!  == true {
                     getUploadBtn.setTitleColor(UIColor(hex6: 0x999999), for: .normal)
                     getUploadBtn.layer.borderColor = UIColor(hex6: 0x999999).cgColor
                     getUploadBtn.isSelected = false
@@ -163,13 +151,29 @@ extension TaskTableView: UITableViewDelegate, UITableViewDataSource {
                     make.centerY.equalTo(cell)
                     make.left.equalTo(30)
                 }
-                getWatchBtn = UIButton()
+                let secondLabel = UILabel()
+                secondLabel.text = "\(weekInfo.data?.todayTotalWatch ?? 0)"
+                secondLabel.font = UIFont.flexibleSystemFont(ofSize: 16)
+                secondLabel.textColor = UIColor(hex6: 0x333333)
+                cell.contentView.addSubview(secondLabel)
+                secondLabel.snp.makeConstraints { make in
+                    make.centerY.equalTo(cell)
+                    make.left.equalTo(firstLabel.snp.right).offset(24)
+                }
+                let thirdLabel = UILabel()
+                thirdLabel.text = "/5"
+                thirdLabel.font = UIFont.flexibleSystemFont(ofSize: 16)
+                thirdLabel.textColor = UIColor(hex6: 0x999999)
+                cell.contentView.addSubview(thirdLabel)
+                thirdLabel.snp.makeConstraints { make in
+                    make.centerY.equalTo(cell)
+                    make.left.equalTo(secondLabel.snp.right)
+                }
                 getWatchBtn.backgroundColor = .white
                 getWatchBtn.setTitle("领取", for: .normal)
                 getWatchBtn.layer.cornerRadius = 15
                 getWatchBtn.layer.borderWidth = 1
-                getWatchBtn.addTarget(self, action: #selector(getWathcMoney), for: .touchUpInside)
-                if (weekInfo.data?.isTodayTakeWatchMoney)!  == false {
+                if (weekInfo.data?.isTodayTakeWatchMoney)!  == true {
                     getWatchBtn.setTitleColor(UIColor(hex6: 0x999999), for: .normal)
                     getWatchBtn.layer.borderColor = UIColor(hex6: 0x999999).cgColor
                     getWatchBtn.isSelected = false
@@ -187,40 +191,31 @@ extension TaskTableView: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
+        if weekInfo != nil && indexPath.section == 1 {
+            let firstLabel = UILabel()
+            firstLabel.text = "我的邀请码"
+            firstLabel.font = UIFont.flexibleSystemFont(ofSize: 16)
+            firstLabel.textColor = UIColor(hex6: 0x333333)
+            cell.contentView.addSubview(firstLabel)
+            firstLabel.snp.makeConstraints { make in
+                make.centerY.equalTo(cell)
+                make.left.equalTo(30)
+            }
+            
+            let inviteCode = UILabel()
+            inviteCode.text = weekInfo.data?.invitationCode
+            inviteCode.font = UIFont.flexibleSystemFont(ofSize: 14)
+            inviteCode.textColor = .starRed
+            inviteCode.textAlignment = .center
+            cell.contentView.addSubview(inviteCode)
+            inviteCode.snp.makeConstraints { make in
+                make.center.equalTo(cell)
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
-    @objc func toSignDay() {
-        //写alert
-        TaskHelper.signDay(success: { _ in
-            self.getSignBtn.isSelected = false
-            print("success")
-        }) { _ in
-            print("fail")
-        }
-    }
-    
-    @objc func getUploadMoney() {
-        TaskHelper.getUploadMoney(success: { _ in
-            self.getUploadBtn.isSelected = false
-            print("success")
-        }) { _ in
-            print("fail")
-        }
-    }
-    
-    @objc func getWathcMoney() {
-        TaskHelper.getWatchMoney(success: { _ in
-            self.getWatchBtn.isSelected = false
-            print("success")
-        }) { _ in
-            print("fail")
-        }
-    }
-    
-    
 }

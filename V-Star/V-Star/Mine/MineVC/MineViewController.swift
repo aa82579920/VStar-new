@@ -140,6 +140,9 @@ extension MineViewController: UITableViewDelegate, UITableViewDataSource {
             print("我的收藏被点击了")
         case 3:
             print("我的红包被点击了")
+            let taskVC = TaskViewController()
+            taskVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(taskVC, animated: true)
         case 4:
             print("粉丝圈被点击了")
             let fansFirstVC = FansCircleFirstViewController()

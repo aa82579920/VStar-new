@@ -91,6 +91,9 @@ extension UIFont {
 }
 
 extension String {
+    static func noSpace(_ str: String) -> String {
+        return str.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+    }
     //md5加密
     static func md5(str:String) -> String{
         let cStr = str.cString(using: String.Encoding.utf8);

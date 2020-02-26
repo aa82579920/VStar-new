@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0441414C2406A4CC009D9D8E /* RedPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441414B2406A4CC009D9D8E /* RedPacket.swift */; };
 		0464FB3B23D9734F00EEFDC5 /* STTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464FB3A23D9734F00EEFDC5 /* STTabBarController.swift */; };
 		0464FB3D23D9736400EEFDC5 /* STTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464FB3C23D9736400EEFDC5 /* STTabBar.swift */; };
 		0464FB3F23D9737B00EEFDC5 /* STTabBarCenterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464FB3E23D9737B00EEFDC5 /* STTabBarCenterButton.swift */; };
@@ -146,6 +147,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0441414B2406A4CC009D9D8E /* RedPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPacket.swift; sourceTree = "<group>"; };
 		0464FB3A23D9734F00EEFDC5 /* STTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBarController.swift; sourceTree = "<group>"; };
 		0464FB3C23D9736400EEFDC5 /* STTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBar.swift; sourceTree = "<group>"; };
 		0464FB3E23D9737B00EEFDC5 /* STTabBarCenterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBarCenterButton.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 			children = (
 				0464FB9523D97E1600EEFDC5 /* TaskTableView.swift */,
 				0464FB9723D97E2700EEFDC5 /* RedCard.swift */,
+				0441414B2406A4CC009D9D8E /* RedPacket.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				0464FB6723D9774600EEFDC5 /* CoverModel.swift in Sources */,
 				0464FB7C23D97B8B00EEFDC5 /* AvatarView.swift in Sources */,
 				0464FB5323D9761000EEFDC5 /* HomeCollectionView.swift in Sources */,
+				0441414C2406A4CC009D9D8E /* RedPacket.swift in Sources */,
 				0464FBA823D97EA200EEFDC5 /* InvitationCode.swift in Sources */,
 				9711278423160F3B00A042C2 /* AttendAttendViewController.swift in Sources */,
 				970E98BF23135226002FEBD8 /* AttendActionViewController.swift in Sources */,
@@ -1353,7 +1357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/StarFINSH/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1380,7 +1384,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "第一次打包";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/StarFINSH/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

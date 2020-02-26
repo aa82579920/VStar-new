@@ -6,6 +6,7 @@
 //  Created by 王申宇 on 2019/11/5.
 //  Copyright © 2019 mac. All rights reserved.
 //
+import UIKit
 
 class RankTotalTopView: UIView {
     let top1 = RealRankTopView()

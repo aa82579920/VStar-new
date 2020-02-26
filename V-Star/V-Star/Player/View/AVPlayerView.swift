@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import MobileCoreServices
+import UIKit
 
 //自定义Delegate，用于进度、播放状态更新回调
 protocol AVPlayerUpdateDelegate:NSObjectProtocol {

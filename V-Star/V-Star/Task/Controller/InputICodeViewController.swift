@@ -15,6 +15,12 @@ class InputICodeView: UIView {
     var textField: UITextField!
     var confirmBtn: UIButton!
     
+    //保存上一次的文本内容
+    var previousText:String!
+     
+    //保持上一次的文本范围
+    var previousRange:UITextRange!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setView()
@@ -40,29 +46,17 @@ class InputICodeView: UIView {
         prompt.text = "请输入邀请码"
         //输入框
         textField = UITextField()
-        textField.backgroundColor = .green
+        textField.backgroundColor = .white
         textField.textColor = UIColor(hex6: 0x333333)
         textField.font = UIFont.flexibleSystemFont(ofSize: 60)
         textField.delegate = self
         textField.addTarget(self, action: #selector(iCodeInput(_:)), for: .editingChanged)
         //确认键
         confirmBtn = UIButton()
-        confirmBtn.backgroundColor = UIColor(red: 238 / 255, green: 267 / 255, blue: 112 / 255, alpha: 1.0)
+        confirmBtn.backgroundColor = UIColor.orange
         confirmBtn.layer.cornerRadius = 20
         confirmBtn.setTitle("确认", for: .normal)
         confirmBtn.titleLabel?.textColor = .white
-        confirmBtn.addTarget(TaskViewController.self, action: #selector(toConfirmICode), for: .touchUpInside)
-    }
-    
-    @objc func toConfirmICode() {
-        TaskStorage.iCode = textField.text!
-        TaskHelper.UseICode(success: { _ in
-            UIView.animate(withDuration: 1) {
-                self.frame.origin.x = self.frame.origin.x + Screen.height
-            }
-        }) { _ in
-//            showAlert
-        }
     }
     
     @objc func iCodeInput(_ textField: UITextField) {
@@ -82,38 +76,24 @@ class InputICodeView: UIView {
         textField.selectedTextRange = textField.textRange(from: targetPostion,to: targetPostion)
     }
     //得到只含大写字母的字符串
-    func getCapital(string: String/*, cursorPosition: inout Int*/) -> String {
-        //保存开始时光标的位置
-//        let originalCursorPosition = cursorPosition
-        //处理后的结果字符串
-//        var result = ""
-//        for uni in string {
-//            if uni.isLowercase {
-//                result.append(uni.uppercased())
-//            }else{
-//                result.append(uni)
-//            }
-//        }
+    func getCapital(string: String) -> String {
         return string.uppercased()
     }
     
     func getSpace(_ str: String,_ cursorPosition:inout Int) -> String {
-        //保存开始时光标的位置
-        let originalCursorPosition = cursorPosition
         //处理后的结果字符串
         var result = ""
-        for i in 0..<str.count {
-            if i < str.count - 1 {
-                result.append(String(str.prefix(i + 1).suffix(1)))
-                result.append(" ")
-            }
+        if str.count < 12 {
+            result.append(str)
+            result.append(" ")
+            cursorPosition = cursorPosition + 1
         }
         return result
     }
     func addView() {
         self.addSubview(inputFrame)
         inputFrame.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(86)
+            make.top.equalTo(self).offset(300)
             make.left.right.equalTo(self).inset(15)
             make.width.equalTo(330)
             make.height.equalTo(178)
@@ -121,15 +101,19 @@ class InputICodeView: UIView {
         
         inputFrame.addSubview(prompt)
         prompt.snp.makeConstraints { make in
-            make.top.equalTo(inputFrame).inset(20)
-            make.left.equalTo(inputFrame).inset(20)
+            make.top.equalTo(inputFrame).offset(20)
+            make.left.equalTo(inputFrame).offset(20)
+            make.width.equalTo(140)
+            make.height.equalTo(30)
         }
         
         inputFrame.addSubview(textField)
         textField.snp.makeConstraints { make in
-            make.top.equalTo(prompt.snp.bottom).offset(50)
+            make.top.equalTo(prompt.snp.bottom).offset(20)
             make.height.equalTo(80)
-            make.bottom.equalTo(inputFrame.snp.bottom).offset(50)
+            make.width.equalTo(300)
+            make.bottom.equalTo(inputFrame.snp.bottom).inset(50)
+            make.left.equalTo(inputFrame).offset(24)
         }
         
         self.addSubview(confirmBtn)
@@ -145,11 +129,11 @@ extension InputICodeView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string.count == 0 {return true}
         if textField.text!.count > 11 {return false}
-        let fieldText = textField.text as! NSMutableString
-        fieldText.replaceCharacters(in: range, with: string)
-        let finalText = fieldText.copy() as! String
-        if finalText.count > 11 {
-            textField.text = String(finalText.prefix(5))
+        //先保存输入框原先的值和选中范围
+        self.previousText = textField.text!
+        self.previousRange = textField.selectedTextRange!
+        if self.previousText.count > 11 {
+        //            textField.text = String(finalText.prefix(5))
             return false
         }
         return true

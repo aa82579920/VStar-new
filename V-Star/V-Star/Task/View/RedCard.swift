@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 class RedCard: UIView {
-    
+    var backImage: UIImageView!
     var avator: UIImageView!
     var userName: UILabel!
     var prompt: UILabel!
@@ -33,6 +33,7 @@ class RedCard: UIView {
     func setView() {
         self.backgroundColor = UIColor(hex6: 0xe3294b)
         self.layer.cornerRadius = 10
+        backImage = UIImageView(image: UIImage(named: "redCard"))
         
         avator = UIImageView()
         avator.layer.borderColor = UIColor.white.cgColor
@@ -59,6 +60,10 @@ class RedCard: UIView {
     }
     
     func addView() {
+        self.addSubview(backImage)
+        backImage.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
         self.addSubview(avator)
         avator.snp.makeConstraints { make in
             make.top.equalTo(7)

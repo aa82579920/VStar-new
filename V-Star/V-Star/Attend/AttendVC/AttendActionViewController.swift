@@ -14,6 +14,7 @@ class AttendActionViewController: UITableViewController {
     var dataSource = [String]()
     var isDataLoaded = false
     var fuva: FollowUserVideoAction!
+    var videoID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class AttendActionViewController: UITableViewController {
         tableView.allowsSelection = false
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Loading...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
-        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     //图片下载
     func downloadImage(_ imageURL: String?, forIndexPath indexPath: IndexPath) {
@@ -37,13 +38,30 @@ class AttendActionViewController: UITableViewController {
     func configureCell(_ cell: AttendActionViewCell, at indexPath: IndexPath) {
         let imgURL = self.fuva.data![indexPath.row].coverURL
         let cachedImage = SDImageCache.shared.imageFromDiskCache(forKey: imgURL)
-
+        let avaURL = self.fuva.data![indexPath.row].avatar
+        let cachedAva = SDImageCache.shared.imageFromDiskCache(forKey: avaURL)
         if cachedImage == nil {
             downloadImage(imgURL!, forIndexPath: indexPath)
             cell.video.setBackgroundImage(UIImage(named: "人气视频"), for: .normal)
         } else {
+            cell.video.tag = indexPath.row
+            cell.video.addTarget(self, action: #selector(toVideo(_:)), for: .touchUpInside)
             cell.video.setBackgroundImage(cachedImage, for: .normal)
+            cell.video.setBackgroundImage(cachedImage, for: .highlighted)
         }
+        
+        if cachedAva == nil {
+            downloadImage(avaURL!, forIndexPath: indexPath)
+            cell.avatar.setImage(UIImage(named: "diianZan_highlighting"), for: .normal)
+        }else{
+            cell.avatar.setImage(cachedAva, for: .normal)
+            cell.avatar.setImage(cachedAva, for: .highlighted)
+            cell.avatar.addTarget(self, action: #selector(toFollower(_:)), for: .touchUpInside)
+        }
+        cell.avatar.layer.cornerRadius = 18.5
+        cell.avatar.layer.borderColor = UIColor.starRed.cgColor
+        cell.avatar.layer.borderWidth = 1.5
+        cell.avatar.layer.masksToBounds = true
     }
     @objc func loadData() {
         MyStorage.limit = 3
@@ -57,10 +75,56 @@ class AttendActionViewController: UITableViewController {
         })
     }
     
+    @objc func refresh() {
+        self.refreshControl?.beginRefreshing()
+        MyStorage.limit = 3
+        MyStorage.page = 1
+        MyStorage.userID = 17
+        GetHelper.GetFUVA(success: { followUserVideoAction in
+            self.fuva = followUserVideoAction
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        }, failure: { _ in
+            print("hhh")
+        })
+    }
+    
+    func loadMore() {
+        
+    }
+    
+    @objc func toFollower(_ btn: UIButton) {
+        
+    }
+    
+    @objc func toVideo(_ btn: UIButton) {
+        WorkStorage.videoId = self.fuva.data![btn.tag].videoID ?? ""
+        let playVC = PlayViewController()
+        playVC.hidesBottomBarWhenPushed = true
+        self.present(playVC, animated: true, completion: nil)
+    }
+    
+    @objc func collectionOrNot(_ btn: UIButton) {
+        let data = self.fuva.data![btn.tag]
+        if data.isCollected == true {
+            WorkStorage.collectionNum = data.collectionNum!
+            GetHelper.DeleteCollection(success: { _ in
+                btn.isHighlighted = false
+            }) { _ in
+            }
+        } else {
+            WorkStorage.workId = "\(data.workID!)"
+            GetHelper.AddCollection(success: { _ in
+                btn.isHighlighted = true
+            }) { _ in
+            }
+        }
+    }
+    
     //MARK: - UITableViewDataSource & UITableViewDelegate
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if fuva == nil {
-            return 3
+            return 0
         }else{
             return fuva.data!.count
         }
@@ -79,6 +143,7 @@ class AttendActionViewController: UITableViewController {
             let cell = AttendActionViewCell(byModel: fuva, withIndex: indexPath.row)
             WorkStorage.videoId = fuva.data![indexPath.row].videoID!
             cell.video.addTarget(self, action: #selector(toPlay), for: .touchUpInside)
+            cell.collect.addTarget(self, action: #selector(collectionOrNot(_:)), for: .touchUpInside)
             self.configureCell(cell, at: indexPath)
             return cell
         }
@@ -96,7 +161,7 @@ class AttendActionViewController: UITableViewController {
             }
         
             let width = Screen.width - 28
-            let height = (width / (image?.size.width ?? 1)) * (image?.size.height ?? 1) + 133
+            let height = (width / (image?.size.width ?? 1)) * (image?.size.height ?? 1) + 220
         
             return height
         }else{return 0}

@@ -194,5 +194,38 @@ struct GetHelper {
             
         })
     }
+    
+    static func AddCollection(success: @escaping (IsError) -> Void, failure: @escaping (Error) -> Void) {
+        var myParam = ["user_ID": MyStorage.userID,"work_ID": WorkStorage.workId] as [String: Any]
+        VStarHelper.dataStar(url: VStar_URL.work.addCollection, myMethod: .get, param: &myParam, success: { dic in
+            if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let logout = try? IsError(data: data) {
+                success(logout)
+            }
+        }, failure: { _ in
+            
+        })
+    }
+    
+    static func DeleteCollection(success: @escaping (IsError) -> Void, failure: @escaping (Error) -> Void) {
+        var myParam = ["user_ID": MyStorage.userID,"work_ID": WorkStorage.collectionNum] as [String: Any]
+        VStarHelper.dataStar(url: VStar_URL.work.deleteCollection, myMethod: .get, param: &myParam, success: { dic in
+            if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let logout = try? IsError(data: data) {
+                success(logout)
+            }
+        }, failure: { _ in
+            
+        })
+    }
+    
+    static func DeleteByWICollection(success: @escaping (IsError) -> Void, failure: @escaping (Error) -> Void) {
+        var myParam = ["user_ID": MyStorage.userID,"work_ID": WorkStorage.workId] as [String: Any]
+        VStarHelper.dataStar(url: VStar_URL.work.deleteCollectionByWork, myMethod: .get, param: &myParam, success: { dic in
+            if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let logout = try? IsError(data: data) {
+                success(logout)
+            }
+        }, failure: { _ in
+            
+        })
+    }
 
 }

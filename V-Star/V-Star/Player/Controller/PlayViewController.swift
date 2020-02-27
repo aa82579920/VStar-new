@@ -66,6 +66,7 @@ class PlayViewController: UIViewController {
     @objc func back() {
         navigationController?.popViewController(animated: true)
         playerView.pause()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loadData() {

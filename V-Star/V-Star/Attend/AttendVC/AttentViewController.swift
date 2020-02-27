@@ -17,6 +17,7 @@ class AttentViewController: UIViewController {
     let indicator = JXSegmentedIndicatorLineView() //指示器
     var listContainerView: JXSegmentedListContainerView!
     let liveBtn = UIButton()
+    let tableview = AttendActionViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +115,7 @@ extension AttentViewController: JXSegmentedListContainerViewDataSource {
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         if index == 0{
-            return AttendActionViewController()
+            return tableview
         } else if index == 1 {
             return AttendListControler()
         } else {

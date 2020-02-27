@@ -60,7 +60,7 @@ struct WorkStorage {
     static var habit = "2,0,0,0,0,0"       //播放习惯
     static var mode = 1               //mode = 1 hot_first
                                       //mode = 2 time_first
-    
+    static var collectionNum = 0
 }
 
 //URL
@@ -145,6 +145,9 @@ struct VStar_URL {
         static let deleteWorkByID = "/work/deleteWorkByID"//根据workID删除作品
         static let getWorkByUserID = "/work/getWorkByUserID"//根据用户ID获取该用户所有作品
         static let getWorkByTypeID = "/work/getWorkByTypeID"//按类型ID获取作品
+        static let addCollection = "/work/addCollection"
+        static let deleteCollection = "/work/deleteCollection"
+        static let deleteCollectionByWork = "/work/deleteCollectionByWork"
     }
     
     struct fanCircle {

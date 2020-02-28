@@ -64,6 +64,12 @@
 		732FB00F234B1F2900B23CA2 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732FB00E234B1F2900B23CA2 /* HomeCell.swift */; };
 		740959102351BC220057D935 /* DongTaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409590F2351BC220057D935 /* DongTaiTableViewCell.swift */; };
 		744A37BB24069C4F00666207 /* PersonnalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37BA24069C4F00666207 /* PersonnalPageController.swift */; };
+		744A37BD2407754600666207 /* PersonalPageTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37BC2407754600666207 /* PersonalPageTopView.swift */; };
+		744A37C32408B9E800666207 /* MyNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37C22408B9E800666207 /* MyNewsController.swift */; };
+		744A37C52408C65200666207 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37C42408C65200666207 /* MessageController.swift */; };
+		744A37C72408C66800666207 /* NoticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37C62408C66800666207 /* NoticeController.swift */; };
+		744A37C92408C68800666207 /* LikesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37C82408C68800666207 /* LikesController.swift */; };
+		744A37CB2408C69B00666207 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A37CA2408C69B00666207 /* CommentController.swift */; };
 		74A1573223657E2C00A5FF80 /* UserFandomList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A1573123657E2C00A5FF80 /* UserFandomList.swift */; };
 		74A24E5D23D59A500036FE47 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A24E5C23D59A500036FE47 /* SystemConfiguration.framework */; };
 		74A24E5F23D59A5B0036FE47 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A24E5E23D59A5B0036FE47 /* Security.framework */; };
@@ -214,6 +220,12 @@
 		732FB00E234B1F2900B23CA2 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		7409590F2351BC220057D935 /* DongTaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DongTaiTableViewCell.swift; sourceTree = "<group>"; };
 		744A37BA24069C4F00666207 /* PersonnalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnalPageController.swift; sourceTree = "<group>"; };
+		744A37BC2407754600666207 /* PersonalPageTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageTopView.swift; sourceTree = "<group>"; };
+		744A37C22408B9E800666207 /* MyNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsController.swift; sourceTree = "<group>"; };
+		744A37C42408C65200666207 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		744A37C62408C66800666207 /* NoticeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeController.swift; sourceTree = "<group>"; };
+		744A37C82408C68800666207 /* LikesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesController.swift; sourceTree = "<group>"; };
+		744A37CA2408C69B00666207 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		74A1573123657E2C00A5FF80 /* UserFandomList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFandomList.swift; sourceTree = "<group>"; };
 		74A24E5C23D59A500036FE47 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		74A24E5E23D59A5B0036FE47 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -503,6 +515,7 @@
 				971127932316227700A042C2 /* Attend */,
 				744A37B624069BFC00666207 /* PersonalPage */,
 				9711278F231621BC00A042C2 /* Mine */,
+				744A37BE2408B99000666207 /* MyNews */,
 				74A2502E23D9B88C0036FE47 /* Setting */,
 				74DF7C4F234EE8B600A3AC1B /* FansCircle */,
 				970E98B82313516C002FEBD8 /* Login */,
@@ -561,8 +574,45 @@
 		744A37B924069C3D00666207 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				744A37BC2407754600666207 /* PersonalPageTopView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		744A37BE2408B99000666207 /* MyNews */ = {
+			isa = PBXGroup;
+			children = (
+				744A37C12408B9CD00666207 /* Model */,
+				744A37C02408B9BF00666207 /* View */,
+				744A37BF2408B9B900666207 /* Controller */,
+			);
+			path = MyNews;
+			sourceTree = "<group>";
+		};
+		744A37BF2408B9B900666207 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				744A37C22408B9E800666207 /* MyNewsController.swift */,
+				744A37C42408C65200666207 /* MessageController.swift */,
+				744A37C62408C66800666207 /* NoticeController.swift */,
+				744A37C82408C68800666207 /* LikesController.swift */,
+				744A37CA2408C69B00666207 /* CommentController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		744A37C02408B9BF00666207 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		744A37C12408B9CD00666207 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		74A2502E23D9B88C0036FE47 /* Setting */ = {
@@ -1093,6 +1143,7 @@
 				0464FB6A23D9776000EEFDC5 /* UploadVideoView.swift in Sources */,
 				97BC56C3230E178000DE0FFE /* VStarPostHelper.swift in Sources */,
 				9711278D2316195100A042C2 /* RankTopView.swift in Sources */,
+				744A37C52408C65200666207 /* MessageController.swift in Sources */,
 				97BC56A2230D3FC300DE0FFE /* Collection.swift in Sources */,
 				0464FB6C23D9776C00EEFDC5 /* BTTagView.swift in Sources */,
 				0464FB9C23D97E4400EEFDC5 /* SignDay.swift in Sources */,
@@ -1118,6 +1169,7 @@
 				970E98BF23135226002FEBD8 /* AttendActionViewController.swift in Sources */,
 				732FB00F234B1F2900B23CA2 /* HomeCell.swift in Sources */,
 				74A2503123D9B8EA0036FE47 /* SetUpController.swift in Sources */,
+				744A37BD2407754600666207 /* PersonalPageTopView.swift in Sources */,
 				0464FB8A23D97D0C00EEFDC5 /* RankTotalTopView.swift in Sources */,
 				971228F8231A0F8800439223 /* ActivitiesCell.swift in Sources */,
 				0464FB9E23D97E4E00EEFDC5 /* UploadMoney.swift in Sources */,
@@ -1145,6 +1197,7 @@
 				0464FB5C23D976CE00EEFDC5 /* EditView.swift in Sources */,
 				97BC5677230A432A00DE0FFE /* VStarHelper.swift in Sources */,
 				0464FB5523D9766A00EEFDC5 /* VideoRecoderConfig.swift in Sources */,
+				744A37C92408C68800666207 /* LikesController.swift in Sources */,
 				971228F223191A3D00439223 /* WorkByID.swift in Sources */,
 				0464FB5823D976A900EEFDC5 /* CropThumbnailView.swift in Sources */,
 				74DF7C54234F1AD600A3AC1B /* FansCircleMainController.swift in Sources */,
@@ -1157,6 +1210,7 @@
 				97BC56A0230D3E6900DE0FFE /* SpotList.swift in Sources */,
 				97BC56D7230F7BDD00DE0FFE /* WorkRank.swift in Sources */,
 				97BC56D5230F7BA500DE0FFE /* UserRank.swift in Sources */,
+				744A37CB2408C69B00666207 /* CommentController.swift in Sources */,
 				971228F623191B8A00439223 /* WorkByTypeID.swift in Sources */,
 				0464FB5A23D976B900EEFDC5 /* EditViewController.swift in Sources */,
 				046A303122DEBBC500AEC03C /* AppDelegate.swift in Sources */,
@@ -1164,6 +1218,7 @@
 				0464FB4523D9744A00EEFDC5 /* WebCacheHelper.swift in Sources */,
 				0464FB9A23D97E3700EEFDC5 /* CheckInvitationCode.swift in Sources */,
 				740959102351BC220057D935 /* DongTaiTableViewCell.swift in Sources */,
+				744A37C72408C66800666207 /* NoticeController.swift in Sources */,
 				0464FB6523D9773600EEFDC5 /* UploadModel.swift in Sources */,
 				0464FB7E23D97B9D00EEFDC5 /* AVPlayerView.swift in Sources */,
 				971228EA231907FE00439223 /* RankWorkCell.swift in Sources */,
@@ -1190,6 +1245,7 @@
 				97000BEA233E5ED9000A2053 /* AuthorHeaderView.swift in Sources */,
 				970FE76B2317722F00EB6E02 /* UserRankCell.swift in Sources */,
 				0464FB8823D97CD100EEFDC5 /* RankListViewController.swift in Sources */,
+				744A37C32408B9E800666207 /* MyNewsController.swift in Sources */,
 				0464FB5123D9759000EEFDC5 /* GradualColor.swift in Sources */,
 				971B19F42327DCBC00A9CB80 /* Storage.swift in Sources */,
 				0464FBAE23D97EE700EEFDC5 /* WatchMoney.swift in Sources */,
@@ -1357,7 +1413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/StarFINSH/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1384,7 +1440,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "第一次打包";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/StarFINSH/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

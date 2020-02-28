@@ -136,6 +136,9 @@ extension MineViewController: UITableViewDelegate, UITableViewDataSource {
             print("人气累积及历史排名被点击了")
         case 1:
             print("我的消息被点击了")
+            let myNewsVC = MyNewsController()
+            myNewsVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(myNewsVC, animated: true)
         case 2:
             print("我的收藏被点击了")
         case 3:

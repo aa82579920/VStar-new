@@ -15,13 +15,14 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.7.3)
-  - AliPlayerSDK_iOS (4.7.3):
-    - AliPlayerSDK_iOS/AliPlayerSDK (= 4.7.3)
-  - AliPlayerSDK_iOS/AliPlayerSDK (4.7.3)
+  - AlivcConan (1.0.2):
+    - AlivcConan/AlivcConan (= 1.0.2)
+  - AlivcConan/AlivcConan (1.0.2)
   - AliyunOSSiOS (2.10.7)
   - AliyunVideoSDKStd (3.12.0)
   - JXSegmentedView (0.0.19)
   - MJRefresh (3.2.0)
+  - QuCore-ThirdParty (3.14.0)
   - SDWebImage (5.1.0):
     - SDWebImage/Core (= 5.1.0)
   - SDWebImage/Core (5.1.0)
@@ -35,11 +36,12 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Alamofire (~> 4.7.3)
-  - AliPlayerSDK_iOS
+  - AlivcConan
   - AliyunOSSiOS
   - AliyunVideoSDKStd
   - JXSegmentedView
   - MJRefresh
+  - QuCore-ThirdParty
   - SDWebImage (~> 5.0)
   - SnapKit (~> 5.0.0)
   - SwiftyJSON
@@ -51,11 +53,12 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - Alamofire
-    - AliPlayerSDK_iOS
+    - AlivcConan
     - AliyunOSSiOS
     - AliyunVideoSDKStd
     - JXSegmentedView
     - MJRefresh
+    - QuCore-ThirdParty
     - SDWebImage
     - SnapKit
     - SwiftyJSON
@@ -66,11 +69,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  AliPlayerSDK_iOS: 9a87f05bee6c9786a4cc7c09da596d33c173e195
+  AlivcConan: df8627643b3794c329e4c8eb894428610be83e88
   AliyunOSSiOS: 602b6a4e70e62a5f0a6431c20496343141d7e66f
   AliyunVideoSDKStd: abe4ec49550143d80b540516c2946b3b23e6b7d7
   JXSegmentedView: 6e22381bd1e6f0767fc078bef1947b13b2d337a1
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  QuCore-ThirdParty: 04b95bda641d0f870247e0e0b46fa6290eefec01
   SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
@@ -78,6 +82,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 9b15110aba1d502456d8e83677357e6437f2e751
   WMPageController: 9f219bb8912a1a1f51af11fde61e2682a7b7e7f2
 
-PODFILE CHECKSUM: 6838af9691bb5a05de7f36c016dd57d57bef2325
+PODFILE CHECKSUM: ae46d9b8b00ffba65f593353360b357f6b76b0dc
 
 COCOAPODS: 1.9.0.beta.2

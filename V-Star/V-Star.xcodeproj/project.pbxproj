@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0430E2DC24321C9A0012D117 /* LoginStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2DB24321C9A0012D117 /* LoginStar.swift */; };
+		0430E2DF24321E200012D117 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2DE24321E200012D117 /* UserInfo.swift */; };
+		0430E2E124321E960012D117 /* GWorkByID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2E024321E960012D117 /* GWorkByID.swift */; };
+		0430E2E324321EB20012D117 /* ActionByID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2E224321EB20012D117 /* ActionByID.swift */; };
+		0430E2E524321ED10012D117 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2E424321ED10012D117 /* CollectionView.swift */; };
+		0430E2E724321EE20012D117 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2E624321EE20012D117 /* CollectionCell.swift */; };
+		0430E2E924321EF70012D117 /* HomePageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2E824321EF70012D117 /* HomePageDetails.swift */; };
+		0430E2EC24321F2B0012D117 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2EB24321F2B0012D117 /* SettingHelper.swift */; };
+		0430E2EE24321F3F0012D117 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2ED24321F3F0012D117 /* UserProtocol.swift */; };
+		0430E2F024321F530012D117 /* UserProtocolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2EF24321F530012D117 /* UserProtocolController.swift */; };
+		0430E2F224321F640012D117 /* PrivatyProtocolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2F124321F640012D117 /* PrivatyProtocolController.swift */; };
 		0441414C2406A4CC009D9D8E /* RedPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441414B2406A4CC009D9D8E /* RedPacket.swift */; };
 		0464FB3B23D9734F00EEFDC5 /* STTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464FB3A23D9734F00EEFDC5 /* STTabBarController.swift */; };
 		0464FB3D23D9736400EEFDC5 /* STTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464FB3C23D9736400EEFDC5 /* STTabBar.swift */; };
@@ -153,6 +164,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0430E2DB24321C9A0012D117 /* LoginStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStar.swift; sourceTree = "<group>"; };
+		0430E2DE24321E200012D117 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		0430E2E024321E960012D117 /* GWorkByID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWorkByID.swift; sourceTree = "<group>"; };
+		0430E2E224321EB20012D117 /* ActionByID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionByID.swift; sourceTree = "<group>"; };
+		0430E2E424321ED10012D117 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		0430E2E624321EE20012D117 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		0430E2E824321EF70012D117 /* HomePageDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDetails.swift; sourceTree = "<group>"; };
+		0430E2EB24321F2B0012D117 /* SettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHelper.swift; sourceTree = "<group>"; };
+		0430E2ED24321F3F0012D117 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
+		0430E2EF24321F530012D117 /* UserProtocolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocolController.swift; sourceTree = "<group>"; };
+		0430E2F124321F640012D117 /* PrivatyProtocolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivatyProtocolController.swift; sourceTree = "<group>"; };
 		0441414B2406A4CC009D9D8E /* RedPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPacket.swift; sourceTree = "<group>"; };
 		0464FB3A23D9734F00EEFDC5 /* STTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBarController.swift; sourceTree = "<group>"; };
 		0464FB3C23D9736400EEFDC5 /* STTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTabBar.swift; sourceTree = "<group>"; };
@@ -328,6 +350,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0430E2DD24321E160012D117 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0430E2DE24321E200012D117 /* UserInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0430E2EA24321F230012D117 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0430E2EB24321F2B0012D117 /* SettingHelper.swift */,
+				0430E2ED24321F3F0012D117 /* UserProtocol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0464FB3923D9733000EEFDC5 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				0464FB7923D97B7000EEFDC5 /* VideoInfo.swift */,
+				0430E2DB24321C9A0012D117 /* LoginStar.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -618,6 +658,7 @@
 		74A2502E23D9B88C0036FE47 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				0430E2EA24321F230012D117 /* Model */,
 				74A2502F23D9B8B70036FE47 /* Controller */,
 			);
 			path = Setting;
@@ -627,6 +668,8 @@
 			isa = PBXGroup;
 			children = (
 				74A2503023D9B8EA0036FE47 /* SetUpController.swift */,
+				0430E2EF24321F530012D117 /* UserProtocolController.swift */,
+				0430E2F124321F640012D117 /* PrivatyProtocolController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -732,6 +775,7 @@
 			isa = PBXGroup;
 			children = (
 				974D754A22F2E8D9003ED088 /* MineViewController.swift */,
+				0430E2E824321EF70012D117 /* HomePageDetails.swift */,
 			);
 			path = MineVC;
 			sourceTree = "<group>";
@@ -763,6 +807,8 @@
 			isa = PBXGroup;
 			children = (
 				974D754E22F3B57A003ED088 /* MineCardView.swift */,
+				0430E2E424321ED10012D117 /* CollectionView.swift */,
+				0430E2E624321EE20012D117 /* CollectionCell.swift */,
 			);
 			path = MineView;
 			sourceTree = "<group>";
@@ -827,6 +873,8 @@
 				97BC56B3230E0C4C00DE0FFE /* Fans.swift */,
 				97BC56B5230E0E8A00DE0FFE /* FollowUserVideoAction.swift */,
 				97BC56B7230E0F5100DE0FFE /* RecommendUser.swift */,
+				0430E2E024321E960012D117 /* GWorkByID.swift */,
+				0430E2E224321EB20012D117 /* ActionByID.swift */,
 			);
 			path = MineModel;
 			sourceTree = "<group>";
@@ -834,6 +882,7 @@
 		971127932316227700A042C2 /* Attend */ = {
 			isa = PBXGroup;
 			children = (
+				0430E2DD24321E160012D117 /* Model */,
 				970E98BA2313519A002FEBD8 /* AttendVC */,
 				971127892316191F00A042C2 /* AttendView */,
 			);
@@ -1132,6 +1181,7 @@
 				97BC569C230D3ACD00DE0FFE /* IsError.swift in Sources */,
 				97BC569A230D384A00DE0FFE /* MySelf.swift in Sources */,
 				0464FBAA23D97EB000EEFDC5 /* TaskURL.swift in Sources */,
+				0430E2DC24321C9A0012D117 /* LoginStar.swift in Sources */,
 				0464FB8223D97BCD00EEFDC5 /* PlayViewController.swift in Sources */,
 				97BC566D22FEE51C00DE0FFE /* HomeDetailViewController.swift in Sources */,
 				971228E82318CF9800439223 /* RankVideoHeaderView.swift in Sources */,
@@ -1153,6 +1203,7 @@
 				0464FB9223D97DEE00EEFDC5 /* InputICodeViewController.swift in Sources */,
 				97BC56BB230E11DC00DE0FFE /* RecentBanner.swift in Sources */,
 				971228EE2319197000439223 /* RecommendWork.swift in Sources */,
+				0430E2E324321EB20012D117 /* ActionByID.swift in Sources */,
 				974D754722F2E874003ED088 /* SetViewController.swift in Sources */,
 				97BC56C7230E397F00DE0FFE /* IsErrorWithoutData.swift in Sources */,
 				97BC5671230A113E00DE0FFE /* SignInViewController.swift in Sources */,
@@ -1187,11 +1238,15 @@
 				974D755122F99C9D003ED088 /* ListBaseController.swift in Sources */,
 				979A5A7A2320C79600A5A9B4 /* HomeFooterView.swift in Sources */,
 				0464FB3B23D9734F00EEFDC5 /* STTabBarController.swift in Sources */,
+				0430E2EE24321F3F0012D117 /* UserProtocol.swift in Sources */,
 				970E98CA2313DE89002FEBD8 /* AttendFansViewController.swift in Sources */,
 				0464FB8023D97BB700EEFDC5 /* PlayerRightView.swift in Sources */,
 				974D754D22F2F12B003ED088 /* Tools.swift in Sources */,
+				0430E2F024321F530012D117 /* UserProtocolController.swift in Sources */,
+				0430E2E124321E960012D117 /* GWorkByID.swift in Sources */,
 				74AFDDAB235D9D2800D92E2A /* FansCirclePingLunTableViewCell.swift in Sources */,
 				0464FBA023D97E6900EEFDC5 /* TaskHelper.swift in Sources */,
+				0430E2E524321ED10012D117 /* CollectionView.swift in Sources */,
 				0464FB9623D97E1600EEFDC5 /* TaskTableView.swift in Sources */,
 				0464FB9823D97E2700EEFDC5 /* RedCard.swift in Sources */,
 				0464FB5C23D976CE00EEFDC5 /* EditView.swift in Sources */,
@@ -1204,6 +1259,7 @@
 				74AFDDA9235D78BC00D92E2A /* FansCircleContentController.swift in Sources */,
 				97BC56CB230E7EC200DE0FFE /* UpdataActionImage.swift in Sources */,
 				97BC5675230A427E00DE0FFE /* SignUpModel.swift in Sources */,
+				0430E2E924321EF70012D117 /* HomePageDetails.swift in Sources */,
 				970E98C62313D99B002FEBD8 /* AttendListController.swift in Sources */,
 				97BC56C9230E42A000DE0FFE /* CommentCommentByAcID.swift in Sources */,
 				0464FB7A23D97B7000EEFDC5 /* VideoInfo.swift in Sources */,
@@ -1216,14 +1272,17 @@
 				046A303122DEBBC500AEC03C /* AppDelegate.swift in Sources */,
 				97BC56B4230E0C4C00DE0FFE /* Fans.swift in Sources */,
 				0464FB4523D9744A00EEFDC5 /* WebCacheHelper.swift in Sources */,
+				0430E2EC24321F2B0012D117 /* SettingHelper.swift in Sources */,
 				0464FB9A23D97E3700EEFDC5 /* CheckInvitationCode.swift in Sources */,
 				740959102351BC220057D935 /* DongTaiTableViewCell.swift in Sources */,
 				744A37C72408C66800666207 /* NoticeController.swift in Sources */,
 				0464FB6523D9773600EEFDC5 /* UploadModel.swift in Sources */,
+				0430E2F224321F640012D117 /* PrivatyProtocolController.swift in Sources */,
 				0464FB7E23D97B9D00EEFDC5 /* AVPlayerView.swift in Sources */,
 				971228EA231907FE00439223 /* RankWorkCell.swift in Sources */,
 				97BC56C5230E30E400DE0FFE /* CommentByActionID.swift in Sources */,
 				732FB00C23476EF400B23CA2 /* VStar-Bridging-Header.h in Sources */,
+				0430E2E724321EE20012D117 /* CollectionCell.swift in Sources */,
 				971127862316123500A042C2 /* RankVIewController.swift in Sources */,
 				0464FBA423D97E8400EEFDC5 /* InvitationLog.swift in Sources */,
 				0464FB5F23D9770200EEFDC5 /* ExportViewController.swift in Sources */,
@@ -1234,6 +1293,7 @@
 				0464FB3F23D9737B00EEFDC5 /* STTabBarCenterButton.swift in Sources */,
 				0464FB8623D97CA700EEFDC5 /* RankTableViewController.swift in Sources */,
 				0464FB6223D9771D00EEFDC5 /* UploadViewController.swift in Sources */,
+				0430E2DF24321E200012D117 /* UserInfo.swift in Sources */,
 				97BC56CD230E853300DE0FFE /* AtUserList.swift in Sources */,
 				97BC5679230A79DC00DE0FFE /* SignInModel.swift in Sources */,
 				974D754B22F2E8D9003ED088 /* MineViewController.swift in Sources */,

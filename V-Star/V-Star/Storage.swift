@@ -12,7 +12,7 @@ import Foundation
 struct PublicParameter {
     static var secretKey = PublicParameter.appKey + String.md5(str: PublicParameter.requestTime)
     static var requestTime = String.getDateNow()
-    static var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmJ1aWxkc3Rhci50b3A6ODg4OFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU4MjcyMDU3MywiZXhwIjoxNTgyODA2OTczLCJuYmYiOjE1ODI3MjA1NzMsImp0aSI6IllPNjZWZE8wTGpTSm1jdloiLCJzdWIiOjE3LCJwcnYiOiI1NjAzYTVkYzY4NDI1ZTQzZDdkNTA3ZjFlYjQ2OGE2MjdhYjQzY2YyIn0.p_yilp_5aPmCxstHWegbIPiLKb7mVbaO1VxYxX_7QPk"
+    static var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmJ1aWxkc3Rhci50b3A6ODg4OFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTU4Mjg5ODM5NywiZXhwIjoxNTgyOTg0Nzk3LCJuYmYiOjE1ODI4OTgzOTcsImp0aSI6IjNudjJ1UFRQdlprM21reDgiLCJzdWIiOjE3LCJwcnYiOiI1NjAzYTVkYzY4NDI1ZTQzZDdkNTA3ZjFlYjQ2OGE2MjdhYjQzY2YyIn0.y3eCYsDTXA4EBNjYYWtSjMfnpV6m6PuFXKtoSJzoEl4"
     static let appKey = "af4dg52ed%3@"
     static var userID = MyStorage.userID
 }
@@ -79,6 +79,7 @@ struct VStar_URL {
         //获取关注者的作品动态
         static let recommendUser = "/user/getRecommendUser"
         //推荐用户
+        static let userinfo = "/user/userinfo"
     }
     struct comment {
         static let index = "/comment/index"             //获取评论

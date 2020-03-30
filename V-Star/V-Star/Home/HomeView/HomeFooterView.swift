@@ -14,6 +14,7 @@ class HomeFooterView: UIView {
     let username = UILabel()
     let sign = UILabel()
     let hot = UIImageView()
+    let avatarBtn = UIButton()
     let hotNum = UILabel()
     
     override init(frame: CGRect) {
@@ -87,6 +88,8 @@ class HomeFooterView: UIView {
             make.width.equalTo(Screen.width / 8)
             make.top.equalTo(hot.snp.bottom).offset(5)
         }
+        addSubview(avatarBtn)
+        avatarBtn.snp.makeConstraints {$0.edges.equalTo(avatar)}
     }
     
 }

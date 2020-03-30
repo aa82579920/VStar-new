@@ -122,6 +122,5 @@ extension AttentViewController: JXSegmentedListContainerViewDataSource {
             return RecommendView()
         }
     }
-    
 }
 

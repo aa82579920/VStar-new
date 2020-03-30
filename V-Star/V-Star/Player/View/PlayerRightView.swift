@@ -26,7 +26,7 @@ class PlayerRightView: UIView {
     
     func initView() {
         self.backgroundColor = nil
-        likeBtn.setImage(UIImage(named: "助力圈"), for: .normal)
+        likeBtn.setImage(UIImage(named: "dianZan_normal"), for: .normal)
         likeBtn.addTarget(self, action: #selector(likeIt), for: .touchUpInside)
         
         likeNum.textColor = UIColor(hex6: 0xcccccc)

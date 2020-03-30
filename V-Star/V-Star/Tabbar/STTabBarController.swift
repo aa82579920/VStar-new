@@ -69,7 +69,17 @@ class STTabBarController: UITabBarController, STTabBarDelegate {
                 dele.STTabBarControllerDidSelectedCenterButton!(tabBarController: self)
             })
         }
-        navigationController?.pushViewController(SetViewController(), animated: true)
+        showAVAuthorizationAlertWithMediaType()
+    }
+    
+    //MARK: - 显示一个权限弹窗
+    func showAVAuthorizationAlertWithMediaType() {
+        var title = "开始录制失败"
+        var message = "服务器正忙，刷新中..."
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "确定", style: .destructive, handler: nil)
+        alertController.addAction(action1)
+        self.present(alertController, animated: false, completion: nil)
     }
 
     func getCurrentViewController() -> UIViewController{

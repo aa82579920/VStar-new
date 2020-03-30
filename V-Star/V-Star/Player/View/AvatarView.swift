@@ -44,17 +44,15 @@ class AvatarView: UIView {
     func initSubview() {
         self.backgroundColor = UIColor(red: 71 / 255, green: 71 / 255, blue: 71 / 255, alpha: 0.5)
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 22
+        self.layer.cornerRadius = 25
         avatar.layer.masksToBounds = true
         avatar.layer.cornerRadius = (self.frame.height - 4) / 2
         rank.textColor = UIColor(red: 238 / 255, green: 79 / 255, blue: 73 / 255, alpha: 1.0)
         rank.font = UIFont.flexibleSystemFont(ofSize: 12)
-        rank.backgroundColor = .clear
         rank.textAlignment = .center
         rank.sizeToFit()
         title.textColor = UIColor(hex6: 0xffffff)
         title.font = UIFont.flexibleSystemFont(ofSize: 12)
-        title.backgroundColor = .clear
         title.textAlignment = .left
         attend.setTitle("+ 关注", for: .normal)
         attend.titleLabel?.font = UIFont.flexibleSystemFont(ofSize: 12)

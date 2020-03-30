@@ -40,13 +40,13 @@ class PlayViewController: UIViewController {
             make.right.equalTo(view).inset(20)
             make.top.equalTo(view).offset(50)
             make.width.equalTo(170)
-            make.height.equalTo(44)
+            make.height.equalTo(50)
         }
         
         rightView = PlayerRightView()
         view.addSubview(rightView)
         rightView.snp.makeConstraints { make in
-            make.bottom.equalTo(view).inset(30)
+            make.bottom.equalTo(view).inset(60)
             make.right.equalTo(view).inset(20)
             make.height.equalTo(248)
             make.width.equalTo(50)
@@ -57,9 +57,22 @@ class PlayViewController: UIViewController {
         backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints { make in
-            make.left.equalTo(view).offset(20)
+            make.left.equalTo(view).offset(30)
             make.top.equalTo(view).offset(50)
-            make.width.height.equalTo(40)
+            make.width.equalTo(25)
+            make.height.equalTo(30)
+        }
+    }
+    
+    func setBtns() {
+        rightView.likeBtn.addTarget(self, action: #selector(like), for: .touchUpInside)
+    }
+    @objc func like() {
+        LSHelper.PostLS(success: { ls in
+            self.rightView.likeBtn.setImage(UIImage(named: "diianZan_highlighting"), for: .normal)
+            self.rightView.likeNum.text = String((ls.data?.numberOfStar)!)
+        }) { _ in
+            
         }
     }
     
@@ -77,6 +90,7 @@ class PlayViewController: UIViewController {
             let height = data?.height
             let width = data?.width
             let realHeight = (Screen.width / CGFloat(width!)) * CGFloat(height!)
+//            if data.
             self.initPlayer(frame: CGRect(origin: CGPoint(x: 0, y: Screen.height / 2 - CGFloat(realHeight / 2)), size: CGSize(width: Screen.width, height: realHeight)))
             self.playerView.setPlayerSourceUrl(url: self.playUrl)
             self.initSubview()

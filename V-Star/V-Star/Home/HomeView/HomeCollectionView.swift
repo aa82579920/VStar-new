@@ -29,7 +29,6 @@ class HomeCollectionView: UICollectionView {
         self.register(HomeCell.self, forCellWithReuseIdentifier: "homecell")
         self.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
         initView()
-//        self.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -69,18 +68,40 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func configureCell(_ cell: HomeCell, at indexPath: IndexPath) {
-        let imgURL = self.collectionView.recommendWork.data[indexPath.row ?? 0].coverURL
-//        let imgURL = imgArray[indexPath?.row ?? 0] as? String
+        let imgURL = self.collectionView.recommendWork.data[indexPath.row ].coverURL
         let cachedImage = SDImageCache.shared.imageFromDiskCache(forKey: imgURL)
 
         if cachedImage == nil {
             downloadImage(self.collectionView.recommendWork.data[indexPath.row].coverURL!, forIndexPath: indexPath)
             cell.cover.setBackgroundImage(UIImage(named: "人气视频"), for: .normal)
         } else {
+            cell.cover.tag = indexPath.row
             cell.cover.setBackgroundImage(cachedImage, for: .normal)
+            cell.cover.addTarget(self, action: #selector(toVideo(_:)), for: .touchUpInside)
+            cell.footerView.avatarBtn.tag = indexPath.row
+            cell.footerView.avatarBtn.addTarget(self, action: #selector(toHomePage(_:)), for: .touchUpInside)
         }
     }
-
+    
+    @objc func toHomePage(_ btn: UIButton) {
+        WorkStorage.userID = "\(self.collectionView.recommendWork.data[btn.tag].userID ?? MyStorage.userID)"
+//        MyStorage.limit = 3
+        let homePage = HomePageDetailsVC()
+        homePage.hidesBottomBarWhenPushed = true
+        homePage.modalPresentationStyle = .fullScreen
+        homePage.modalTransitionStyle = .crossDissolve
+        self.present(homePage, animated: true, completion: nil)
+    }
+    
+    @objc func toVideo(_ btn: UIButton) {
+        WorkStorage.videoId = self.collectionView.recommendWork.data[btn.tag].videoID!
+        WorkStorage.workId = String(self.collectionView.recommendWork.data[btn.tag].workID! )
+        let playVC = PlayViewController()
+        playVC.hidesBottomBarWhenPushed = true
+        playVC.modalPresentationStyle = .fullScreen
+        playVC.modalTransitionStyle = .crossDissolve
+        self.present(playVC, animated: true, completion: nil)
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         

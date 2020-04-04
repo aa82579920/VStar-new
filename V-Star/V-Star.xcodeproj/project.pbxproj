@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0405C0AC243846F7009D0F3B /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C0AB243846F7009D0F3B /* AccountSettingViewController.swift */; };
+		0405C0AE24384C98009D0F3B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C0AD24384C98009D0F3B /* InputViewController.swift */; };
+		0405C0B024385984009D0F3B /* TNDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C0AF24385984009D0F3B /* TNDatePicker.swift */; };
+		0405C0B224385BE6009D0F3B /* TNDatePickerAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C0B124385BE6009D0F3B /* TNDatePickerAnimated.swift */; };
+		0405C0B424387256009D0F3B /* UserUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C0B324387256009D0F3B /* UserUpdate.swift */; };
 		0430E2DC24321C9A0012D117 /* LoginStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2DB24321C9A0012D117 /* LoginStar.swift */; };
 		0430E2DF24321E200012D117 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2DE24321E200012D117 /* UserInfo.swift */; };
 		0430E2E124321E960012D117 /* GWorkByID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430E2E024321E960012D117 /* GWorkByID.swift */; };
@@ -164,6 +169,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0405C0AB243846F7009D0F3B /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
+		0405C0AD24384C98009D0F3B /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		0405C0AF24385984009D0F3B /* TNDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNDatePicker.swift; sourceTree = "<group>"; };
+		0405C0B124385BE6009D0F3B /* TNDatePickerAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNDatePickerAnimated.swift; sourceTree = "<group>"; };
+		0405C0B324387256009D0F3B /* UserUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdate.swift; sourceTree = "<group>"; };
 		0430E2DB24321C9A0012D117 /* LoginStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStar.swift; sourceTree = "<group>"; };
 		0430E2DE24321E200012D117 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		0430E2E024321E960012D117 /* GWorkByID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWorkByID.swift; sourceTree = "<group>"; };
@@ -363,6 +373,8 @@
 			children = (
 				0430E2EB24321F2B0012D117 /* SettingHelper.swift */,
 				0430E2ED24321F3F0012D117 /* UserProtocol.swift */,
+				0405C0B324387256009D0F3B /* UserUpdate.swift */,
+				0405C0B124385BE6009D0F3B /* TNDatePickerAnimated.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -670,6 +682,9 @@
 				74A2503023D9B8EA0036FE47 /* SetUpController.swift */,
 				0430E2EF24321F530012D117 /* UserProtocolController.swift */,
 				0430E2F124321F640012D117 /* PrivatyProtocolController.swift */,
+				0405C0AB243846F7009D0F3B /* AccountSettingViewController.swift */,
+				0405C0AD24384C98009D0F3B /* InputViewController.swift */,
+				0405C0AF24385984009D0F3B /* TNDatePicker.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1199,6 +1214,7 @@
 				0464FB9C23D97E4400EEFDC5 /* SignDay.swift in Sources */,
 				74DF7C5A234F4DA000A3AC1B /* CircleDongTaiController.swift in Sources */,
 				97BC56D2230F71F600DE0FFE /* MessageByID.swift in Sources */,
+				0405C0B424387256009D0F3B /* UserUpdate.swift in Sources */,
 				97BC56BE230E16E700DE0FFE /* RecentAction.swift in Sources */,
 				0464FB9223D97DEE00EEFDC5 /* InputICodeViewController.swift in Sources */,
 				97BC56BB230E11DC00DE0FFE /* RecentBanner.swift in Sources */,
@@ -1214,6 +1230,7 @@
 				0464FB6723D9774600EEFDC5 /* CoverModel.swift in Sources */,
 				0464FB7C23D97B8B00EEFDC5 /* AvatarView.swift in Sources */,
 				0464FB5323D9761000EEFDC5 /* HomeCollectionView.swift in Sources */,
+				0405C0B224385BE6009D0F3B /* TNDatePickerAnimated.swift in Sources */,
 				0441414C2406A4CC009D9D8E /* RedPacket.swift in Sources */,
 				0464FBA823D97EA200EEFDC5 /* InvitationCode.swift in Sources */,
 				9711278423160F3B00A042C2 /* AttendAttendViewController.swift in Sources */,
@@ -1231,11 +1248,13 @@
 				974D754322F2E7FD003ED088 /* AttentViewController.swift in Sources */,
 				97BC56A4230D420E00DE0FFE /* CommentIndex.swift in Sources */,
 				74DF7C51234EE93F00A3AC1B /* FansCircleFirstViewController.swift in Sources */,
+				0405C0B024385984009D0F3B /* TNDatePicker.swift in Sources */,
 				97BC56B6230E0E8A00DE0FFE /* FollowUserVideoAction.swift in Sources */,
 				971127882316126800A042C2 /* ActivitiesViewController.swift in Sources */,
 				971228F023191A0A00439223 /* DeleteWorkByID.swift in Sources */,
 				0464FB7423D9795400EEFDC5 /* MyAliyunMediaConfig.swift in Sources */,
 				974D755122F99C9D003ED088 /* ListBaseController.swift in Sources */,
+				0405C0AE24384C98009D0F3B /* InputViewController.swift in Sources */,
 				979A5A7A2320C79600A5A9B4 /* HomeFooterView.swift in Sources */,
 				0464FB3B23D9734F00EEFDC5 /* STTabBarController.swift in Sources */,
 				0430E2EE24321F3F0012D117 /* UserProtocol.swift in Sources */,
@@ -1253,6 +1272,7 @@
 				97BC5677230A432A00DE0FFE /* VStarHelper.swift in Sources */,
 				0464FB5523D9766A00EEFDC5 /* VideoRecoderConfig.swift in Sources */,
 				744A37C92408C68800666207 /* LikesController.swift in Sources */,
+				0405C0AC243846F7009D0F3B /* AccountSettingViewController.swift in Sources */,
 				971228F223191A3D00439223 /* WorkByID.swift in Sources */,
 				0464FB5823D976A900EEFDC5 /* CropThumbnailView.swift in Sources */,
 				74DF7C54234F1AD600A3AC1B /* FansCircleMainController.swift in Sources */,
@@ -1473,7 +1493,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/VStarFinalFianl/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1500,7 +1520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yanchao.V-Star";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "第一次打包";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shan/Documents/VStar-new/VStar-new/V-Star/VStar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/malbeshaba/VStarFinalFianl/VStar-new/V-Star/VStar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

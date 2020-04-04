@@ -273,6 +273,7 @@ extension SignInViewController {
     }
     
     @objc func login() {
+        afterLogin()
         let username = userNameText.text
         let password = passwordText.text
         

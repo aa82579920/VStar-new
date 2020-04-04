@@ -12,8 +12,8 @@ import Foundation
 struct MySelf: Codable {
     let message: String?
     let errorCode: Int?
-    let data: MySelfDataClass?
-    
+    let data: MSDataClass?
+
     enum CodingKeys: String, CodingKey {
         case message
         case errorCode = "error_code"
@@ -27,54 +27,55 @@ extension MySelf {
     init(data: Data) throws {
         self = try newJSONDecoder().decode(MySelf.self, from: data)
     }
-    
+
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
         guard let data = json.data(using: encoding) else {
             throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
         }
         try self.init(data: data)
     }
-    
+
     init(fromURL url: URL) throws {
         try self.init(data: try Data(contentsOf: url))
     }
-    
+
     func with(
         message: String?? = nil,
         errorCode: Int?? = nil,
-        data: MySelfDataClass?? = nil
-        ) -> MySelf {
+        data: MSDataClass?? = nil
+    ) -> MySelf {
         return MySelf(
             message: message ?? self.message,
             errorCode: errorCode ?? self.errorCode,
             data: data ?? self.data
         )
     }
-    
+
     func jsonData() throws -> Data {
         return try newJSONEncoder().encode(self)
     }
-    
+
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 // MARK: - DataClass
-struct MySelfDataClass: Codable {
+struct MSDataClass: Codable {
     let userID: Int?
     let username, avatar, sex: String?
     let age: Int?
+    let birthday: Birthday?
     let signature: String?
     let fansNum, followNum: Int?
     let token: String?
     let weekHotValue, monthHotValue, yearHotValue: Int?
     let city, tags: String?
     let monthRank: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case userID = "user_ID"
-        case username, avatar, sex, age, signature
+        case username, avatar, sex, age, birthday, signature
         case fansNum = "fans_num"
         case followNum = "follow_num"
         case token
@@ -88,28 +89,29 @@ struct MySelfDataClass: Codable {
 
 // MARK: DataClass convenience initializers and mutators
 
-extension MySelfDataClass {
+extension MSDataClass {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(MySelfDataClass.self, from: data)
+        self = try newJSONDecoder().decode(MSDataClass.self, from: data)
     }
-    
+
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
         guard let data = json.data(using: encoding) else {
             throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
         }
         try self.init(data: data)
     }
-    
+
     init(fromURL url: URL) throws {
         try self.init(data: try Data(contentsOf: url))
     }
-    
+
     func with(
         userID: Int?? = nil,
         username: String?? = nil,
         avatar: String?? = nil,
         sex: String?? = nil,
         age: Int?? = nil,
+        birthday: Birthday?? = nil,
         signature: String?? = nil,
         fansNum: Int?? = nil,
         followNum: Int?? = nil,
@@ -120,13 +122,14 @@ extension MySelfDataClass {
         city: String?? = nil,
         tags: String?? = nil,
         monthRank: Int?? = nil
-        ) -> MySelfDataClass {
-        return MySelfDataClass(
+    ) -> MSDataClass {
+        return MSDataClass(
             userID: userID ?? self.userID,
             username: username ?? self.username,
             avatar: avatar ?? self.avatar,
             sex: sex ?? self.sex,
             age: age ?? self.age,
+            birthday: birthday ?? self.birthday,
             signature: signature ?? self.signature,
             fansNum: fansNum ?? self.fansNum,
             followNum: followNum ?? self.followNum,
@@ -139,11 +142,55 @@ extension MySelfDataClass {
             monthRank: monthRank ?? self.monthRank
         )
     }
-    
+
     func jsonData() throws -> Data {
         return try newJSONEncoder().encode(self)
     }
-    
+
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
+
+// MARK: - Birthday
+struct Birthday: Codable {
+    let year, month, day: Int?
+}
+
+// MARK: Birthday convenience initializers and mutators
+
+extension Birthday {
+    init(data: Data) throws {
+        self = try newJSONDecoder().decode(Birthday.self, from: data)
+    }
+
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+
+    func with(
+        year: Int?? = nil,
+        month: Int?? = nil,
+        day: Int?? = nil
+    ) -> Birthday {
+        return Birthday(
+            year: year ?? self.year,
+            month: month ?? self.month,
+            day: day ?? self.day
+        )
+    }
+
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
     }

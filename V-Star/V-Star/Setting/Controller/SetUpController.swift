@@ -43,6 +43,7 @@ class SetUpController: UIViewController {
             1: [String]([
                 "排名规则",
                 "用户协议",
+                "隐私协议",
                 "意见反馈",
                 "关于V-Star"]),
             2: [String](["退出"])
@@ -95,7 +96,8 @@ extension SetUpController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             if indexPath.row == 0 {
-                
+                let account = AccountSettingViewController()
+                navigationController?.pushViewController(account, animated: true)
             }else if indexPath.row == 1 {
                 
             }else {
@@ -105,8 +107,11 @@ extension SetUpController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 
             }else if indexPath.row == 1 {
-                
+                let vc = UserProtocolController()
+                navigationController?.pushViewController(vc, animated: true)
             }else if indexPath.row == 2 {
+                let vc = PrivatyProtocolController()
+                navigationController?.pushViewController(vc, animated: true)
                 
             }else {
                 

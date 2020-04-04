@@ -10,8 +10,7 @@ import Foundation
 
 struct GetHelper {
     static func GetMyself(success: @escaping (MySelf) -> Void, failure: @escaping (Error) -> Void) {
-        var myParam = ["":""] as [String: Any]
-        VStarHelper.dataStar(url: VStar_URL.user.myself, myMethod: .get, param: &myParam, success: { dic in
+        VStarHelper.dataStar(url: VStar_URL.user.myself, myMethod: .get, success: { dic in
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0)), let mySelf = try? MySelf(data: data) {
                 success(mySelf)
             }

@@ -40,10 +40,11 @@ struct VStarHelper {
     static func dataStar(url: String, myMethod: HTTPMethod, success: (([String: Any])->())? = nil, failure: ((Error)->())? = nil) {
         let trueURL = VStar_URL.baseURL + url
         var param = Parameters()
-        param.updateValue(PublicParameter.token, forKey: "token")
+//        param.updateValue(PublicParameter.token, forKey: "token")
         param.updateValue(PublicParameter.requestTime, forKey: "request_time")
         param.updateValue(PublicParameter.secretKey, forKey: "secret_key")
-        Alamofire.request(trueURL, method: myMethod, parameters: param).responseJSON { response in
+        let header: HTTPHeaders = ["Authorization": "Bearer \(PublicParameter.token)"]
+        Alamofire.request(trueURL, method: myMethod, parameters: param, headers: header).responseJSON { response in
             switch response.result {
             case .success:
                 if let data = response.result.value  {

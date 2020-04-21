@@ -162,7 +162,7 @@ extension TaskViewController {
     
     @objc func getUploadMoney() {
         TaskHelper.getUploadMoney(success: { info in
-            self.showTask(money: String((info.data?.thisTimeGetMoney)!))
+            self.showTask(money: String((info.data?.thisTimeGetMoney) ?? 0))
             self.taskTableView.getUploadBtn.isSelected = false
             self.redCard.money.text = "¥\(self.money + (info.data?.thisTimeGetMoney)!)"
             self.taskTableView.reloadData()

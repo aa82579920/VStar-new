@@ -36,9 +36,9 @@ class AttendActionViewController: UITableViewController {
     }
     
     func configureCell(_ cell: AttendActionViewCell, at indexPath: IndexPath) {
-        let imgURL = self.fuva.data![indexPath.row].coverURL
+        let imgURL = self.fuva.data!.data![indexPath.row].coverURL
         let cachedImage = SDImageCache.shared.imageFromDiskCache(forKey: imgURL)
-        let avaURL = self.fuva.data![indexPath.row].avatar
+        let avaURL = self.fuva.data!.data![indexPath.row].avatar
         let cachedAva = SDImageCache.shared.imageFromDiskCache(forKey: avaURL)
         if cachedImage == nil {
             downloadImage(imgURL!, forIndexPath: indexPath)
@@ -98,14 +98,14 @@ class AttendActionViewController: UITableViewController {
     }
     
     @objc func toVideo(_ btn: UIButton) {
-        WorkStorage.videoId = self.fuva.data![btn.tag].videoID ?? ""
+        WorkStorage.videoId = self.fuva.data!.data![btn.tag].videoID ?? ""
         let playVC = PlayViewController()
         playVC.hidesBottomBarWhenPushed = true
         self.present(playVC, animated: true, completion: nil)
     }
     
     @objc func collectionOrNot(_ btn: UIButton) {
-        let data = self.fuva.data![btn.tag]
+        let data = self.fuva.data!.data![btn.tag]
         if data.isCollected == true {
             WorkStorage.collectionNum = data.collectionNum!
             GetHelper.DeleteCollection(success: { _ in
@@ -126,12 +126,12 @@ class AttendActionViewController: UITableViewController {
         if fuva == nil {
             return 0
         }else{
-            return fuva.data!.count
+            return fuva.data!.data!.count
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.fuva != nil {
-            WorkStorage.videoId = fuva.data![indexPath.row].videoID!
+            WorkStorage.videoId = fuva.data!.data![indexPath.row].videoID!
             navigationController?.pushViewController(PlayViewController(), animated: true)
         }
     }
@@ -141,7 +141,7 @@ class AttendActionViewController: UITableViewController {
             return AttendActionViewCell()
         }else{
             let cell = AttendActionViewCell(byModel: fuva, withIndex: indexPath.row)
-            WorkStorage.videoId = fuva.data![indexPath.row].videoID!
+            WorkStorage.videoId = fuva.data!.data![indexPath.row].videoID!
             cell.video.addTarget(self, action: #selector(toPlay), for: .touchUpInside)
             cell.collect.addTarget(self, action: #selector(collectionOrNot(_:)), for: .touchUpInside)
             self.configureCell(cell, at: indexPath)
@@ -155,7 +155,7 @@ class AttendActionViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.fuva != nil {
-            var image = SDImageCache.shared.imageFromDiskCache(forKey: self.fuva.data![indexPath.row].coverURL)
+            var image = SDImageCache.shared.imageFromDiskCache(forKey: self.fuva.data!.data![indexPath.row].coverURL)
             if image == nil {
                 image = UIImage(named: "人气视频")
             }

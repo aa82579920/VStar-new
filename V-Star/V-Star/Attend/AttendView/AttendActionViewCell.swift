@@ -75,7 +75,7 @@ class AttendActionViewCell: UITableViewCell {
     }
     
     func setView(model: FollowUserVideoAction, index: Int) {
-        let data = model.data![index]
+        let data = model.data!.data![index]
         suportNum.textColor = UIColor(hex6: 0xbd3d52)  //点过赞
         
         shareNum.textColor = UIColor(hex6: 0x999999)
@@ -258,19 +258,19 @@ class AttendActionViewCell: UITableViewCell {
         self.init(style: .default, reuseIdentifier: "attendActionTableView")
         setDefaultView()
         setView(model: fuva, index: index)
-        if let temp = fuva.data![index].username {
+        if let temp = fuva.data!.data![index].username {
             userName.text = temp
         }
-        if let temp = fuva.data![index].monthRank {
+        if let temp = fuva.data!.data![index].monthRank {
             rank.text = "NO.\(temp)"
         }
-        if let temp = fuva.data![index].signature {
+        if let temp = fuva.data!.data![index].signature {
             copy.text = temp
         }
-        if let temp = fuva.data![index].collectionNum {
+        if let temp = fuva.data!.data![index].collectionNum {
             collectNum.text = String(temp)
         }
-        if let temp = fuva.data![index].commentNum {
+        if let temp = fuva.data!.data![index].commentNum {
             commitNum.text = String(temp)
         }
         

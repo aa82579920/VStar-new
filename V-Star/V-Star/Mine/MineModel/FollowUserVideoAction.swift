@@ -12,11 +12,11 @@
 
 import Foundation
 
-// MARK: - WeekInfo
+// MARK: - FollowUserVideoAction
 struct FollowUserVideoAction: Codable {
     let errorCode: Int?
     let message: String?
-    let data: [FUVADatum]?
+    let data: FUVADataClass?
 
     enum CodingKeys: String, CodingKey {
         case errorCode = "error_code"
@@ -24,7 +24,7 @@ struct FollowUserVideoAction: Codable {
     }
 }
 
-// MARK: WeekInfo convenience initializers and mutators
+// MARK: FollowUserVideoAction convenience initializers and mutators
 
 extension FollowUserVideoAction {
     init(data: Data) throws {
@@ -45,12 +45,60 @@ extension FollowUserVideoAction {
     func with(
         errorCode: Int?? = nil,
         message: String?? = nil,
-        data: [FUVADatum]?? = nil
+        data: FUVADataClass?? = nil
     ) -> FollowUserVideoAction {
         return FollowUserVideoAction(
             errorCode: errorCode ?? self.errorCode,
             message: message ?? self.message,
             data: data ?? self.data
+        )
+    }
+
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
+
+// MARK: - DataClass
+struct FUVADataClass: Codable {
+    let data: [FUVADatum]?
+    let lastPage: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case data
+        case lastPage = "last_page"
+    }
+}
+
+// MARK: DataClass convenience initializers and mutators
+
+extension FUVADataClass {
+    init(data: Data) throws {
+        self = try newJSONDecoder().decode(FUVADataClass.self, from: data)
+    }
+
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+
+    func with(
+        data: [FUVADatum]?? = nil,
+        lastPage: Int?? = nil
+    ) -> FUVADataClass {
+        return FUVADataClass(
+            data: data ?? self.data,
+            lastPage: lastPage ?? self.lastPage
         )
     }
 
@@ -72,8 +120,7 @@ struct FUVADatum: Codable {
     let hotValue: Int?
     let time: String?
     let workID: Int?
-    let coverID: String?
-    let videoID, tags: String?
+    let coverID, videoID, tags: String?
     let monthRank: Int?
     let signature: String?
     let collectionNum, commentNum, shareNum: Int?
